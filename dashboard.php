@@ -6,4 +6,6 @@ include('sessions.php');
     <h1>Welcome <?php echo $login_session; ?></h1> 
     <h2><a href = "logout.php">Sign Out</a></h2>
 </section>
+
+
 <?php include './footer.php'; ?>

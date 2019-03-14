@@ -11,6 +11,3 @@
 <!-- Custom scripts for this template -->
 <script src="./assets/js/creative.min.js"></script>
 
-</body>
-
-</html>

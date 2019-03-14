@@ -1,4 +1,14 @@
-<?php include './header.php'; ?>
+<?php
+include './header.php';
+include "./database/config.php";
+
+$sql = "SELECT * FROM tbl_slot "; //get user details
+$result = mysqli_query($db, $sql);
+foreach ($result as $slots) {
+    print_r($slots['id']);
+}
+?>
+dfsdfsdf
 
 <section id="services">
     <div class="container">
@@ -42,9 +52,18 @@
         </div>
     </div>
 </section>
+<section>
+<div>
+</div>
+</section>
 
+<?php include './footer.php';?>
+<script>
+$( document ).ready(function() {
+    alert();
+});
+</script>
 
+</body>
 
-
-<?php include './footer.php'; ?>
-
+</html>

@@ -8,8 +8,6 @@ foreach ($result as $slots) {
     print_r($slots['id']);
 }
 ?>
-dfsdfsdf
-
 <section id="services">
     <div class="container">
         <div class="row">

@@ -1,34 +1,31 @@
 <?php
-include("./database/config.php");
+include "./database/config.php";
 session_start();
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    // username and password sent from form 
+    // username and password sent from form
 
     $myusername = mysqli_real_escape_string($db, $_POST['username']);
     $mypassword = mysqli_real_escape_string($db, $_POST['password']);
 
-    $sql = "SELECT * FROM tbl_user WHERE email LIKE '$myusername'";//get user details
+    $sql = "SELECT * FROM tbl_user WHERE email LIKE '$myusername'"; //get user details
     $result = mysqli_query($db, $sql);
     $data = $result->fetch_assoc();
-    if (password_verify($mypassword, $data['password'])) {//chack password
-        $_SESSION['login_user'] = $myusername;//add data to session
-        $_SESSION['user_type'] = $data['role_id'];//add data to session
-if($data['role_id'] == "1"){
-    echo  "admin";
-}else if($data['role_id'] == "2"){
-    echo "customer";
-}else{
-    echo "manager";
-}
-        die();
-        header("location: dashboard.php");
-    } else {
-        echo "Your Login Name or Password is invalid";
-    }
-}
+    if (password_verify($mypassword, $data['password'])) { //chack password
+        $_SESSION['login_user'] = $myusername; //add data to session
+        $_SESSION['user_type'] = $data['role_id']; //add data to session
+        if ($data['role_id'] == "1") {
+            header("location: admin/index.php");
+        } else if ($data['role_id'] == "2") {
+            header("location: dashboard.php");
+        } else if ($data['role_id'] == "3") {
+            header("location: dashboard.php");
+        } else {
+            echo "Your Login Name or Password is invalid";
+        }
+    }}
 ?>
-<?php include './header.php'; ?>
+<?php include './header.php';?>
 
 <div class="container">
     <div class="row">
@@ -59,5 +56,4 @@ if($data['role_id'] == "1"){
         </div>
     </div>
 </div>
-<?php include './footer.php'; ?>
-    
+<?php include './footer.php';?>

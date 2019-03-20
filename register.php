@@ -3,11 +3,14 @@ include("./database/config.php");
 $msg = "";
 if ($_SERVER["REQUEST_METHOD"] == "POST") {//check data passing method
     // username and password sent from form 
-    $myusername = $_POST['username']; //get post data
-    $custommer = $_POST['type']; //get post data
+    $f_name = $_POST['f_name']; //get post data
+    $l_name = $_POST['l_name']; //get post data
+    $nic = $_POST['nic']; //get post data
+    $mobile = $_POST['mobile']; //get post data
+    $city = $_POST['city']; //get post data
     $hashed_password = $hashed_password = password_hash($_POST['password'], PASSWORD_DEFAULT); //password convert hash 
     $email = $_POST['email'];
-    $sql = "INSERT INTO `tbl_user`( `name`, `email`,type , `password`) VALUES ('$myusername','$email','$custommer','$hashed_password')"; //insert in to the database
+    $sql = "INSERT INTO `tbl_user`( `f_name`,`l_name`,`NIC`,`mobile`, `city`,`email`,`role_id`,`password`) VALUES ('$f_name','$l_name','$nic','$mobile','$city','$email','2','$hashed_password')"; //insert in to the database
     if (mysqli_query($db, $sql)) {//execute query
         $msg = "Records inserted successfully.";
     } else {
@@ -31,20 +34,24 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {//check data passing method
                             <label for="inputEmail">Email address</label>
                         </div>
                         <div class="form-label-group">
-                            <input name="username" type="text" id="inputName" class="form-control" placeholder="User Name" required autofocus>
-                            <label for="inputName">First Name</label>
+                            <input name="f_name" type="text" id="f_name" class="form-control" placeholder="User Name" required autofocus>
+                            <label for="f_name">First Name</label>
                         </div>
                          <div class="form-label-group">
-                            <input name="username" type="text" id="inputName" class="form-control" placeholder="User Name" required autofocus>
-                            <label for="inputName">Last Name</label>
+                            <input name="l_name" type="text" id="l_name" class="form-control" placeholder="User Name" required autofocus>
+                            <label for="l_name">Last Name</label>
                         </div>
                         <div class="form-label-group">
-                            <input name="username" type="text" id="inputName" class="form-control" placeholder="User Name" required autofocus>
-                            <label for="inputName">Mobile</label>
+                            <input name="nic" type="text" id="nic" class="form-control" placeholder="User Name" required autofocus>
+                            <label for="nic">NIC</label>
                         </div>
                         <div class="form-label-group">
-                            <input name="username" type="text" id="inputName" class="form-control" placeholder="User Name" required autofocus>
-                            <label for="inputName">City</label>
+                            <input name="mobile" type="number" id="mobile" class="form-control" placeholder="User Name" required autofocus>
+                            <label for="mobile">Mobile</label>
+                        </div>
+                        <div class="form-label-group">
+                            <input name="city" type="text" id="city" class="form-control" placeholder="User Name" required autofocus>
+                            <label for="city">City</label>
                         </div>
                         <input type="hidden" name="type" id="type" value="custommer" />
                         <div class="form-label-group">

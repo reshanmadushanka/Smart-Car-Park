@@ -8,12 +8,20 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $myusername = mysqli_real_escape_string($db, $_POST['username']);
     $mypassword = mysqli_real_escape_string($db, $_POST['password']);
 
-    $sql = "SELECT * FROM tbl_user WHERE name LIKE '$myusername'";//get user details
+    $sql = "SELECT * FROM tbl_user WHERE email LIKE '$myusername'";//get user details
     $result = mysqli_query($db, $sql);
     $data = $result->fetch_assoc();
     if (password_verify($mypassword, $data['password'])) {//chack password
         $_SESSION['login_user'] = $myusername;//add data to session
-        $_SESSION['user_type'] = $data['type'];//add data to session
+        $_SESSION['user_type'] = $data['role_id'];//add data to session
+if($data['role_id'] == "1"){
+    echo  "admin";
+}else if($data['role_id'] == "2"){
+    echo "customer";
+}else{
+    echo "manager";
+}
+        die();
         header("location: dashboard.php");
     } else {
         echo "Your Login Name or Password is invalid";

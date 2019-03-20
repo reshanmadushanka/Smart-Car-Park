@@ -32,7 +32,19 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {//check data passing method
                         </div>
                         <div class="form-label-group">
                             <input name="username" type="text" id="inputName" class="form-control" placeholder="User Name" required autofocus>
-                            <label for="inputName">User Name</label>
+                            <label for="inputName">First Name</label>
+                        </div>
+                         <div class="form-label-group">
+                            <input name="username" type="text" id="inputName" class="form-control" placeholder="User Name" required autofocus>
+                            <label for="inputName">Last Name</label>
+                        </div>
+                        <div class="form-label-group">
+                            <input name="username" type="text" id="inputName" class="form-control" placeholder="User Name" required autofocus>
+                            <label for="inputName">Mobile</label>
+                        </div>
+                        <div class="form-label-group">
+                            <input name="username" type="text" id="inputName" class="form-control" placeholder="User Name" required autofocus>
+                            <label for="inputName">City</label>
                         </div>
                         <input type="hidden" name="type" id="type" value="custommer" />
                         <div class="form-label-group">

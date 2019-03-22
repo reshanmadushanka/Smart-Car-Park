@@ -5,7 +5,6 @@ include "./database/config.php";
 $sql = "SELECT * FROM tbl_slot "; //get user details
 $result = mysqli_query($db, $sql);
 foreach ($result as $slots) {
-    print_r($slots['id']);
 }
 ?>
 <section id="parking">
@@ -51,7 +50,6 @@ foreach ($result as $slots) {
 <?php include './footer.php';?>
 <script>
 $( document ).ready(function() {
-    alert();
 });
 </script>
 

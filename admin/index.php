@@ -1,4 +1,9 @@
-<?php include '../admin/header.php';?>
+<?php include '../admin/header.php';
+$sql = $db->prepare('select * from tbl_slot');
+$sql->execute();
+$data = $sql->fetchAll();
+
+?>
 
         <div class="content pure-u-1 pure-u-md-21-24">
             <div class="header-small">
@@ -12,7 +17,7 @@
                     <div class="pure-u-1 pure-u-md-1-3">
                         <div class="column-block">
                             <div class="column-block-header column-success">
-                                <h2>Accounts</h2>
+                                <h2>Bookings</h2>
                                 <span class="column-block-info">1000 <span>this month</span></span>
                             </div>
                             <ul class="column-block-list">
@@ -23,7 +28,7 @@
                         </div>
                     </div>
 
-                    <div class="pure-u-1 pure-u-md-1-3">
+                    <!-- <div class="pure-u-1 pure-u-md-1-3">
                         <div class="column-block">
                             <div class="column-block-header column-warning">
                                 <h2>Posts</h2>
@@ -35,9 +40,9 @@
                                 <li>Total <span class="buble-warning button-small pull-right">10000</span></li>
                             </ul>
                         </div>
-                    </div>
+                    </div> -->
 
-                    <div class="pure-u-1 pure-u-md-1-3">
+                    <!-- <div class="pure-u-1 pure-u-md-1-3">
                         <div class="column-block">
                             <div class="column-block-header">
                                 <h2>Options</h2>
@@ -49,7 +54,7 @@
                                 <li>Total <span class="buble-warning button-small pull-right">10000</span></li>
                             </ul>
                         </div>
-                    </div>
+                    </div> -->
 
                 </div>
 
@@ -60,29 +65,26 @@
                                 <thead>
                                 <tr>
                                     <th>#</th>
-                                    <th>Title</th>
+                                    <th>Name</th>
                                     <th>Status</th>
                                 </tr>
                                 </thead>
 
                                 <tbody>
+                                <?php foreach ($data as $parkings) {?>
                                 <tr>
-                                    <td>1</td>
-                                    <td>Post Title 1</td>
-                                    <td>Active</td>
+                                    <td><?= $parkings['id'] ?></td>
+                                    <td><?= $parkings['slot_name'] ?></td>
+                                    <td><?= $parkings['status']=='1'?'Booked':'Free' ?></td>
                                 </tr>
-                                <tr>
-                                    <td>2</td>
-                                    <td>Post Title 2</td>
-                                    <td>Draft</td>
-                                </tr>
+                                <?php }?>
                                 </tbody>
                             </table>
                         </div>
                     </div>
                     <div class="pure-u-1 pure-u-md-2-3">
                         <div class="column-block">
-                            <table class="pure-table pure-table-horizontal">
+                            <!-- <table class="pure-table pure-table-horizontal">
                                 <thead>
                                 <tr>
                                     <th>#</th>
@@ -109,14 +111,14 @@
                                     <td>Awaiting</td>
                                 </tr>
                                 </tbody>
-                            </table>
+                            </table> -->
                         </div>
                     </div>
                 </div>
 
                 <div class="footer">
                     <div class="pure-menu pure-menu-horizontal">
-                        
+
                     </div>
                 </div>
             </div>

@@ -2,9 +2,7 @@
 <?php
 $sql = $db->prepare("SELECT * FROM tbl_user"); //get data from database
 $sql->execute(); //execute query
-$data = $sql->fetchAll(); //insert in to array
-
-?>
+$data = $sql->fetchAll(); //insert in to array ?>
 <div class="content pure-u-1 pure-u-md-21-24">
             <div class="header-small">
 
@@ -20,7 +18,12 @@ $data = $sql->fetchAll(); //insert in to array
                     <aside class="pure-message message-warning">
                         <p><strong>WARNING</strong>: Warning message.</p>
                     </aside> -->
-
+            <?php if (isset($_SESSION['success'])) { ?>
+                <aside class="pure-message message-warning">
+                        <p><strong>WARNING</strong>: Warning message.</p>
+                    </aside>
+	<?php
+} ?>
                     <table class="pure-table pure-table-bordered">
                         <thead>
                         <tr>
@@ -38,7 +41,7 @@ $data = $sql->fetchAll(); //insert in to array
                             <td><?=$users['f_name'] . ' ' . $users['l_name']; ?></td>
                             <td><?=$users['email']; ?></td>
                             <td>
-                                <a class="pure-button button-small button-success" href="post-form.html">Edit</a>
+                                <a class="pure-button button-small button-success" href="user_edit.php?id=<?php echo $users['id']; ?>">Edit</a>
                                 <a class="pure-button button-small button-error" href="#" onclick="return confirm('Are you sure?');">Delete</a>
                             </td>
                         </tr>
@@ -46,7 +49,10 @@ $data = $sql->fetchAll(); //insert in to array
                         </tbody>
                     </table>
                 </div>
+<?php 
+unset($_SESSION['success'])
 
+?>
                 <!-- <div class="navigation">
                     <div class="pure-button-group">
                         <a href="#" class="pure-button">Prev</a>

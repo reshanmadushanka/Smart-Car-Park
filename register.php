@@ -13,7 +13,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") { //check data passing method
     $sql = $db->prepare("INSERT INTO `tbl_user`( `f_name`,`l_name`,`NIC`,`mobile`, `city`,`email`,`role_id`,`password`) VALUES ('$f_name','$l_name','$nic','$mobile','$city','$email','2','$hashed_password')"); //insert in to the database
     $sql->execute();
 
-    
+    if($sql){
+        echo "Successfully inserted data";
+    }else{
+        echo "failed to insert data";
+    }
 }
 ?>
 <?php include './header.php';?>

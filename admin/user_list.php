@@ -19,8 +19,8 @@ $data = $sql->fetchAll(); //insert in to array ?>
                         <p><strong>WARNING</strong>: Warning message.</p>
                     </aside> -->
             <?php if (isset($_SESSION['success'])) { ?>
-                <aside class="pure-message message-warning">
-                        <p><strong>WARNING</strong>: Warning message.</p>
+                <aside class="pure-message message-success">
+                        <p><strong>SUCCESS</strong><?= $_SESSION['success']; ?></p>
                     </aside>
 	<?php
 } ?>

@@ -1,4 +1,4 @@
-<?php include '../admin/header.php'; ?>
+<?php include '../admin/header.php';?>
 <?php
 $sql = $db->prepare("SELECT * FROM tbl_user"); //get data from database
 $sql->execute(); //execute query
@@ -8,22 +8,13 @@ $data = $sql->fetchAll(); //insert in to array ?>
 
                 <div class="items">
                     <h1 class="subhead">User List <a class="pure-button button-small button-secondary" href="../admin/register_user.php">Add New User</a></h1>
-<!--
-                    <aside class="pure-message message-success">
-                        <p><strong>SUCCESS</strong>: Success message.</p>
-                    </aside>
-                    <aside class="pure-message message-error">
-                        <p><strong>ERROR</strong>: Error message.</p>
-                    </aside>
-                    <aside class="pure-message message-warning">
-                        <p><strong>WARNING</strong>: Warning message.</p>
-                    </aside> -->
-            <?php if (isset($_SESSION['success'])) { ?>
+<!-- success msg show -->
+            <?php if (isset($_SESSION['success'])) {?>
                 <aside class="pure-message message-success">
-                        <p><strong>SUCCESS</strong><?= $_SESSION['success']; ?></p>
+                        <p><?=$_SESSION['success'];?></p>
                     </aside>
-	<?php
-} ?>
+	        <?php
+}?>
                     <table class="pure-table pure-table-bordered">
                         <thead>
                         <tr>
@@ -35,27 +26,20 @@ $data = $sql->fetchAll(); //insert in to array ?>
                         </thead>
 
                         <tbody>
-                        <?php foreach ($data as $users) { ?>
+                        <?php foreach ($data as $users) {?>
                         <tr>
-                            <td><?=$users['id']; ?></td>
-                            <td><?=$users['f_name'] . ' ' . $users['l_name']; ?></td>
-                            <td><?=$users['email']; ?></td>
+                            <td><?=$users['id'];?></td>
+                            <td><?=$users['f_name'] . ' ' . $users['l_name'];?></td>
+                            <td><?=$users['email'];?></td>
                             <td>
                                 <a class="pure-button button-small button-success" href="user_edit.php?id=<?php echo $users['id']; ?>">Edit</a>
-                                <a class="pure-button button-small button-error" href="#" onclick="return confirm('Are you sure?');">Delete</a>
+                                <a class="pure-button button-small button-error" href="delete-user.php?id=<?=$users['id'];?>" onclick="return confirm('Are you sure?');">Delete</a>
                             </td>
                         </tr>
-<?php } ?>
+<?php }?>
                         </tbody>
                     </table>
                 </div>
-<?php 
-unset($_SESSION['success'])
-
+<?php
+unset($_SESSION['success']);
 ?>
-                <!-- <div class="navigation">
-                    <div class="pure-button-group">
-                        <a href="#" class="pure-button">Prev</a>
-                        <a href="#" class="pure-button">Next</a>
-                    </div>
-                </div> -->

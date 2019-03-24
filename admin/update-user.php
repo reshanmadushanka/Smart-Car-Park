@@ -29,11 +29,11 @@ if ("POST" == $_SERVER["REQUEST_METHOD"]) {
   $sql->execute();
   
   if ($sql) {
-    $_SESSION['success']="Data Submit Successful";
+    $_SESSION['success']="User Update Successful";
     header("location: ../admin/user_list.php");
    } else {
     echo " <aside class='pure-message message-warning'>";
-    echo "<p><strong>SUCCESS</strong>: Success message.</p>";
+    echo "<p><strong>SUCCESS</strong>: Error </p>";
     echo "</aside>";
    }
 

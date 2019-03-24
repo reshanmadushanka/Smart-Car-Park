@@ -31,7 +31,7 @@ include('../sessions.php');
                             <a href="../admin/user_list.php" class="pure-menu-link">User List</a>
                         </li>
                         <li>
-                            <a href="post-form.html" class="pure-menu-link">Post Form</a>
+                            <a href="parking-list.php" class="pure-menu-link">Parking Management</a>
                         </li>
                         <li class="menu-item-divided">
                             <a href="option-list.html" class="pure-menu-link">Option List</a>

@@ -28,7 +28,7 @@ include('../sessions.php');
                             <a href="dashboard.html" class="pure-menu-link">Dashboard</a>
                         </li>
                         <li>
-                            <a href="../admin/user/index.php" class="pure-menu-link">User List</a>
+                            <a href="../admin/user_list.php" class="pure-menu-link">User List</a>
                         </li>
                         <li>
                             <a href="post-form.html" class="pure-menu-link">Post Form</a>

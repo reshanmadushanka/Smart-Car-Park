@@ -5,12 +5,12 @@ session_start();
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // username and password sent from form
 
-    $myusername = mysqli_real_escape_string($db, $_POST['username']);
-    $mypassword = mysqli_real_escape_string($db, $_POST['password']);
+    $myusername =  $_POST['username'];
+    $mypassword =  $_POST['password'];
 
-    $sql = "SELECT * FROM tbl_user WHERE email LIKE '$myusername'"; //get user details
-    $result = mysqli_query($db, $sql);
-    $data = $result->fetch_assoc();
+    $sql = $db->prepare("SELECT * FROM tbl_user WHERE email LIKE '$myusername'"); //get user details
+    $sql->execute();
+    $data = $sql->fetch(PDO::FETCH_ASSOC);
     if (password_verify($mypassword, $data['password'])) { //chack password
         $_SESSION['login_user'] = $myusername; //add data to session
         $_SESSION['user_type'] = $data['role_id']; //add data to session

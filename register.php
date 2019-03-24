@@ -1,25 +1,22 @@
 <?php
-include("./database/config.php");
+include "./database/config.php";
 $msg = "";
-if ($_SERVER["REQUEST_METHOD"] == "POST") {//check data passing method
-    // username and password sent from form 
+if ($_SERVER["REQUEST_METHOD"] == "POST") { //check data passing method
+    // username and password sent from form
     $f_name = $_POST['f_name']; //get post data
     $l_name = $_POST['l_name']; //get post data
     $nic = $_POST['nic']; //get post data
     $mobile = $_POST['mobile']; //get post data
     $city = $_POST['city']; //get post data
-    $hashed_password = $hashed_password = password_hash($_POST['password'], PASSWORD_DEFAULT); //password convert hash 
+    $hashed_password = $hashed_password = password_hash($_POST['password'], PASSWORD_DEFAULT); //password convert hash
     $email = $_POST['email'];
-    $sql = "INSERT INTO `tbl_user`( `f_name`,`l_name`,`NIC`,`mobile`, `city`,`email`,`role_id`,`password`) VALUES ('$f_name','$l_name','$nic','$mobile','$city','$email','2','$hashed_password')"; //insert in to the database
-    if (mysqli_query($db, $sql)) {//execute query
-        $msg = "Records inserted successfully.";
-    } else {
-        $msg = "ERROR: Could not able to execute " . mysqli_error($db);
-    }
-    mysqli_close($db); //close db connection
+    $sql = $db->prepare("INSERT INTO `tbl_user`( `f_name`,`l_name`,`NIC`,`mobile`, `city`,`email`,`role_id`,`password`) VALUES ('$f_name','$l_name','$nic','$mobile','$city','$email','2','$hashed_password')"); //insert in to the database
+    $sql->execute();
+
+    
 }
 ?>
-<?php include './header.php'; ?>
+<?php include './header.php';?>
 
 <div class="container">
     <div class="row">
@@ -27,7 +24,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {//check data passing method
             <div class="card card-signin my-5">
                 <div class="card-body">
                     <h5 class="card-title text-center">Register</h5>
-                    <?= $msg ?>
+                    <?=$msg?>
                     <form class="form-signin" method="post" action="register.php">
                         <div class="form-label-group">
                             <input name="email" type="email" id="inputEmail" class="form-control" placeholder="Email address" required autofocus>
@@ -71,5 +68,4 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {//check data passing method
         </div>
     </div>
 </div>
-<?php include './footer.php'; ?>
-    
+<?php include './footer.php';?>

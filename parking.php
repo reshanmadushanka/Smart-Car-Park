@@ -8,11 +8,29 @@ foreach ($result as $slots) {
     print_r($slots['id']);
 }
 ?>
-<section id="parking">
+<div class="filter-box col-lg-12 pull-left">
+<div class="container">
+       
+        <form class="  col-lg-12 pull-left">
+            <div class="col-lg-4 pull-left">
+                <input class="form-control" type="date">
+            </div>
+            <div class="col-lg-4 pull-left">
+                <input class="form-control" type="time">
+            </div>
+            <div class="col-lg-12 pull-left">
+                <button type="submit">Search</button>
+            </div>
+        </form>
+     
+</div>
+</div>
+
+<div id="parking" class="col-lg-12 pull-left">
     <div class="container">
         <div class="row">
-            <div class="col-lg-12 text-center">
-                <h2 class="section-heading">Parking Slots</h2>
+            <div class="col-lg-12 text-center ">
+                <h2 class="text-white">Parking Slots</h2>
                 
             </div>
         </div>
@@ -20,13 +38,13 @@ foreach ($result as $slots) {
     <div class="container">
         <div class="row">
             <div class="col-lg-3 col-md-6 text-center">
-                <div class="parking-box mt-5 mx-auto">
-                     
+                <div class="parking-box mt-5 mx-auto booked">
+                     <a href="#"></a>
                 </div>
             </div>
             <div class="col-lg-3 col-md-6 text-center">
-                <div class="parking-box mt-5 mx-auto">
-                     
+                <div class="parking-box mt-5 mx-auto parked">
+                    <a href="#"></a>  
                  </div>
                 
             </div>
@@ -37,16 +55,13 @@ foreach ($result as $slots) {
             </div>
             <div class="col-lg-3 col-md-6 text-center">
             <div class="parking-box mt-5 mx-auto">
-                     
+            <a href="#"></a>
                      </div>
             </div>
         </div>
     </div>
-</section>
-<section>
-<div>
 </div>
-</section>
+ 
 
 <?php include './footer.php';?>
 <script>

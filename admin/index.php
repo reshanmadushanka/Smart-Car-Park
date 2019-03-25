@@ -67,6 +67,7 @@ $data = $sql->fetchAll();
                                     <th>#</th>
                                     <th>Name</th>
                                     <th>Status</th>
+
                                 </tr>
                                 </thead>
 
@@ -75,7 +76,7 @@ $data = $sql->fetchAll();
                                 <tr>
                                     <td><?= $parkings['id'] ?></td>
                                     <td><?= $parkings['slot_name'] ?></td>
-                                    <td><?= $parkings['status']=='1'?'Booked':'Free' ?></td>
+                                    <td><?= $parkings['status']=='0'?'Parked':'Free' ?></td>
                                 </tr>
                                 <?php }?>
                                 </tbody>

@@ -31,7 +31,7 @@ $data = $sql->fetchAll();
                         <tr>
                             <td><?=$slot['id'];?></td>
                             <td><?=$slot['slot_name'];?></td>
-                            <td><?= $slot['status']=='1'?'Booked':'Free' ?></td>
+                            <td><?= $slot['status']=='1'?'Free':'Parked' ?></td>
 
                             <td>
                                 <a class="pure-button button-small button-success" href="parking-edit.php?id=<?= $slot['id']; ?>">Edit</a>

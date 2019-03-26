@@ -13,6 +13,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $data = $sql->fetch(PDO::FETCH_ASSOC);
     if (password_verify($mypassword, $data['password'])) { //chack password
         $_SESSION['login_user'] = $myusername; //add data to session
+        $_SESSION['user_id'] = $data['id']; //add data to session
         $_SESSION['user_type'] = $data['role_id']; //add data to session
         if ($data['role_id'] == "1") {
             header("location: admin/index.php");

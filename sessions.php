@@ -1,6 +1,6 @@
 <?php
 
-include "../database/config.php";
+include "./database/config.php";
 session_start();
 
 $user_check = $_SESSION['login_user'];
@@ -14,3 +14,5 @@ $login_session = $data['f_name'];
 if (!isset($_SESSION['login_user'])) {
     header("location:login.php");
 }
+
+?>

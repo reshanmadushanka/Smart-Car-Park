@@ -10,17 +10,12 @@ foreach ($result as $slots) {
 <div class="filter-box col-lg-12 pull-left">
 <div class="container">
 
-        <form class="  col-lg-12 pull-left">
+        <form method="post" action="parking-search.php"  class="col-lg-12 pull-left">
             <div class="col-lg-4 pull-left">
-                <input class="form-control" type="date">
+                <input name="date" class="form-control" type="date">
             </div>
             <div class="col-lg-4 pull-left">
-            <div class='input-group date' id='datetimepicker3'>
-                    <input type='text' class="form-control" />
-                    <span class="input-group-addon">
-                        <span class="glyphicon glyphicon-time"></span>
-                    </span>
-                </div>
+                <input name="time" class="form-control" type="time">
             </div>
             <div class="col-lg-12 pull-left">
                 <button type="submit">Search</button>
@@ -93,15 +88,11 @@ $( document ).ready(function() {
 }
 
 setInterval(update, 1000); //every 10 secs
+
 });
+
 </script>
- <script type="text/javascript">
-            $(function () {
-                $('#datetimepicker3').datetimepicker({
-                    format: 'LT'
-                });
-            });
-        </script>
+
 </body>
 
 </html>

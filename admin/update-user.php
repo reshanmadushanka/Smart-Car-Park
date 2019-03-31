@@ -32,7 +32,7 @@ if ("POST" == $_SERVER["REQUEST_METHOD"]) {
     $_SESSION['success']="User Update Successful";
     header("location: ../admin/user_list.php");
    } else {
-    $_SESSION['success']="Error";
+    $_SESSION['success']="EUser Update Not Successful";
     header("location: ../admin/user_list.php");
    }
 

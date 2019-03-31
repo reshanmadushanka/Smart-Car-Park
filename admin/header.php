@@ -11,7 +11,8 @@
     <link rel="stylesheet" href="../assets/admin/css/style.css">
 </head>
 <?php
-include('../sessions.php');
+include('../database/config.php');
+session_start();
 ?>
 <body>
     <div id="layout" class="pure-g">

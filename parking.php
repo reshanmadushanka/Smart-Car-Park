@@ -12,10 +12,16 @@ foreach ($result as $slots) {
 
         <form method="post" action="parking-search.php"  class="col-lg-12 pull-left">
             <div class="col-lg-4 pull-left">
+            <label for="date">Date</label>
                 <input name="date" class="form-control" type="date">
             </div>
             <div class="col-lg-4 pull-left">
-                <input name="time" class="form-control" type="time">
+            <label for="date">Time From</label>
+                <input name="f_time" class="form-control" type="time">
+            </div>
+            <div class="col-lg-4 pull-left">
+            <label for="date">Time To</label>
+                <input name="t_time" class="form-control" type="time">
             </div>
             <div class="col-lg-12 pull-left">
                 <button type="submit">Search</button>

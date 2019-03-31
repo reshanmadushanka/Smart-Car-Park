@@ -32,9 +32,8 @@ if ("POST" == $_SERVER["REQUEST_METHOD"]) {
     $_SESSION['success']="User Update Successful";
     header("location: ../admin/user_list.php");
    } else {
-    echo " <aside class='pure-message message-warning'>";
-    echo "<p><strong>SUCCESS</strong>: Error </p>";
-    echo "</aside>";
+    $_SESSION['success']="EUser Update Not Successful";
+    header("location: ../admin/user_list.php");
    }
 
  }

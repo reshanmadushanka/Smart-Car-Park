@@ -11,7 +11,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $sql = $db->prepare("SELECT * FROM tbl_user WHERE email LIKE '$myusername'"); //get user details
     $sql->execute();
     $data = $sql->fetch(PDO::FETCH_ASSOC);
-    if (password_verify($mypassword, $data['password'])) { //chack password
+    if (password_verify($mypassword, $data['password'])) { //check password
         $_SESSION['login_user'] = $myusername; //add data to session
         $_SESSION['user_type'] = $data['role_id']; //add data to session
         if ($data['role_id'] == "1") {
@@ -21,9 +21,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         } else if ($data['role_id'] == "3") {
             header("location: dashboard.php");
         } else {
-            echo "Your Login Name or Password is invalid";
+           
         }
-    }}
+    }else{
+        echo "Your Login Name or Password is invalid";
+    }
+}
 ?>
 <?php include './header.php';?>
 

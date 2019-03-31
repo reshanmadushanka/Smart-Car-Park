@@ -8,7 +8,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") { //check data passing method
     $nic = $_POST['nic']; //get post data
     $mobile = $_POST['mobile']; //get post data
     $city = $_POST['city']; //get post data
-    $hashed_password = $hashed_password = password_hash($_POST['password'], PASSWORD_DEFAULT); //password convert hash
+    $hashed_password = password_hash($_POST['password'], PASSWORD_DEFAULT); //password convert hash
     $email = $_POST['email'];
     $sql = $db->prepare("INSERT INTO `tbl_user`( `f_name`,`l_name`,`NIC`,`mobile`, `city`,`email`,`role_id`,`password`) VALUES ('$f_name','$l_name','$nic','$mobile','$city','$email','2','$hashed_password')"); //insert in to the database
     $sql->execute();

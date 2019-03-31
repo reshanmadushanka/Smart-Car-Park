@@ -16,7 +16,7 @@ foreach ($result as $slots) {
             </div>
             <div class="col-lg-4 pull-left">
             <div class='input-group date' id='datetimepicker3'>
-                    <input type='text' class="form-control" />
+                    <input type='time' class="form-control" />
                     <span class="input-group-addon">
                         <span class="glyphicon glyphicon-time"></span>
                     </span>
@@ -47,7 +47,7 @@ foreach ($result as $slots) {
                 </div>
             </div>
             <div class="col-lg-3 col-md-6 text-center">
-                <div id="park2" class="parking-box mt-5 mx-auto">
+                <div id="park2" class="parking-box mt-5 mx-auto ">
                     <a href="#"></a>
                  </div>
 
@@ -76,6 +76,7 @@ $( document ).ready(function() {
         data: "", //the data "caller=name1&&callee=name2"
         dataType: 'json', //data format
         success: function (data) {
+            console.log(data);
 // slot 1----------------------------
         if(data[0]['status']=='0'){
             $('#park1').addClass( "parked" );
@@ -95,13 +96,6 @@ $( document ).ready(function() {
 setInterval(update, 1000); //every 10 secs
 });
 </script>
- <script type="text/javascript">
-            $(function () {
-                $('#datetimepicker3').datetimepicker({
-                    format: 'LT'
-                });
-            });
-        </script>
 </body>
 
 </html>

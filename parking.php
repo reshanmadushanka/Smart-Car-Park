@@ -2,9 +2,11 @@
 include './header.php';
 include "./database/config.php";
 
-$sql = "SELECT * FROM tbl_slot "; //get user details
-$result = mysqli_query($db, $sql);
-foreach ($result as $slots) {
+$sql = $db->prepare("SELECT * FROM tbl_slot "); //get user details
+$sql->execute(); //execute query
+$data = $sql->fetchAll(); //insert in to array
+
+foreach ($data as $slots) {
 }
 ?>
 <div class="filter-box col-lg-12 pull-left">
@@ -16,13 +18,9 @@ foreach ($result as $slots) {
                 <input name="date" class="form-control" type="date">
             </div>
             <div class="col-lg-4 pull-left">
-            <div class='input-group date' id='datetimepicker3'>
-                    <input type='time' class="form-control" />
-                    <span class="input-group-addon">
-                        <span class="glyphicon glyphicon-time"></span>
-                    </span>
+            <label for="date">Date</label>
+                    <input name="time" type='time' class="form-control" />
                 </div>
-
             </div>
             <div class="col-lg-12 pull-left">
                 <button type="submit">Search</button>
@@ -45,12 +43,12 @@ foreach ($result as $slots) {
         <div class="row">
             <div class="col-lg-3 col-md-6 text-center">
                 <div id="park1" class="parking-box mt-5 mx-auto ">
-                     <a href="#"></a>
+                     <!-- <a href="#"></a> -->
                 </div>
             </div>
             <div class="col-lg-3 col-md-6 text-center">
                 <div id="park2" class="parking-box mt-5 mx-auto ">
-                    <a href="#"></a>
+                    <!-- <a href="#"></a> -->
                  </div>
 
             </div>
@@ -61,7 +59,7 @@ foreach ($result as $slots) {
             </div>
             <div class="col-lg-3 col-md-6 text-center">
             <div id="park4" class="parking-box mt-5 mx-auto">
-            <a href="#"></a>
+            <!-- <a href="#"></a> -->
                      </div>
             </div>
         </div>
@@ -78,7 +76,6 @@ $( document ).ready(function() {
         data: "", //the data "caller=name1&&callee=name2"
         dataType: 'json', //data format
         success: function (data) {
-            console.log(data);
 // slot 1----------------------------
         if(data[0]['status']=='0'){
             $('#park1').addClass( "parked" );
@@ -90,6 +87,18 @@ $( document ).ready(function() {
             $('#park2').addClass( "parked" );
         }else{
             $('#park2').removeClass( "parked" );
+        }
+// slot 3 -----------------------------booked
+        if(data[2]['status']=='0'){
+            $('#park3').addClass( "parked" );
+        }else{
+            $('#park3').removeClass( "parked" );
+        }
+// slot 4 -----------------------------booked
+        if(data[3]['status']=='0'){
+            $('#park4').addClass( "parked" );
+        }else{
+            $('#park4').removeClass( "parked" );
         }
     }
     });

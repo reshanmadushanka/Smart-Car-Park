@@ -20,7 +20,7 @@ session_start();
             <div id="menu">
                 <div class="pure-menu">
                     <p class="pure-menu-heading">
-                    <?php echo $login_session.'Admin'; ?>
+                    <?php echo $_SESSION['login_user']; ?>
                         <a href="../logout.php" class="pure-button button-xxsmall">LOGOUT &raquo;</a>
                     </p>
                     <ul class="pure-menu-list">
@@ -35,6 +35,9 @@ session_start();
                         </li>
                         <li>
                             <a href="slider_form.php" class="pure-menu-link">Slider Management</a>
+                        </li>
+                        <li>
+                            <a href="booking_list.php" class="pure-menu-link">Booking Management</a>
                         </li>
                         
                     </ul>

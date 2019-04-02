@@ -28,10 +28,13 @@ session_start();
                             <a href="dashboard.html" class="pure-menu-link">Dashboard</a>
                         </li>
                         <li>
-                            <a href="../admin/user_list.php" class="pure-menu-link">User Management</a>
+                            <a href="user_list.php" class="pure-menu-link">User Management</a>
                         </li>
                         <li>
                             <a href="parking-list.php" class="pure-menu-link">Parking Management</a>
+                        </li>
+                        <li>
+                            <a href="slider_form.php" class="pure-menu-link">Slider Management</a>
                         </li>
                         
                     </ul>

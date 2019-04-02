@@ -55,7 +55,7 @@ foreach ($data as $slotall) {?>
                 <div id="park1" class="parking-box mt-5 mx-auto booked">
                      <h3 class="text-white"><?=$slotall['name']?></h3>
                      <p class="text-white"><?="(" . $slotall['from'] . "-" . $slotall['to'] . ") ";?></p>
-                     <p class="text-white"><?= $slotall['status'] == '0' ? 'Now Vehicle Parked' : '';?></p>
+                     <p class="text-white"><?=$slotall['status'] == '0' ? 'Now Vehicle Parked' : '';?></p>
                 </div>
             </div>
 

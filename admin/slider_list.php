@@ -33,7 +33,7 @@ $data = $sql->fetchAll(); //insert in to array ?>
                             <td><?= $sliders['title'];?></td>
                             <td>
                                 <a class="pure-button button-small button-success" href="user_edit.php?id=<?php echo $sliders['id']; ?>">Edit</a>
-                                <a class="pure-button button-small button-error" href="delete-user.php?id=<?=$sliders['id'];?>" onclick="return confirm('Are you sure?');">Delete</a>
+                                <a class="pure-button button-small button-error" href="slider-delete.php?id=<?=$sliders['id'];?>" onclick="return confirm('Are you sure?');">Delete</a>
                             </td>
                         </tr>
 <?php }?>

@@ -3,9 +3,9 @@ include "./database/config.php";
 session_start();
 if ($_SERVER["REQUEST_METHOD"] == "POST") { //check data passing method
     $date = $_POST['date'];
-    $f_time = $_POST['time']; //real search time
+    $f_time = $_POST['time']; //real search time =from time
     $timestamp = (strtotime($f_time) + 60 * 60); //add one hour
-    $time = date('H:i', $timestamp);
+    $time = date('H:i', $timestamp);//after add one hour =to time
 //get booking data with slot detail------------
     $sql = $db->prepare("SELECT
 tbl_booking.*,
@@ -16,6 +16,7 @@ FROM
 INNER JOIN tbl_slot ON tbl_slot.id = tbl_booking.slot_id
 WHERE
 tbl_booking.from >= '$f_time' AND tbl_booking.from < '$time' AND tbl_booking.book_date = '$date'");
+//11.00=< x <12.00 
     $sql->execute(); //execute query
     $data = $sql->fetchAll(); //insert in to array
     // get not booking slot data----------------

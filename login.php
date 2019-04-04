@@ -24,12 +24,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         } else {
             header("location: admin/index.php");
         }
-    }else{
+    } else {
         echo "Your Login Name or Password is invalid";
     }
 }
 ?>
-<?php include './header.php';?>
+<?php include './header.php'; ?>
 
 <div class="container">
     <div class="row">
@@ -39,13 +39,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     <h5 class="card-title text-center">Sign In</h5>
                     <form class="form-signin" method="post" action="login.php">
                         <div class="form-label-group">
-                            <input name="username" type="text" id="name" class="form-control" placeholder="Email address" required autofocus>
-                            <label for="name">Email address</label>
+                            <label for="name">Email Address</label> <br>
+                            <input name="username" type="text" id="name" class="form-control" placeholder="Email" required autofocus>
                         </div>
 
                         <div class="form-label-group">
+                            <label for="inputPassword">Password</label><br>
                             <input name="password" type="password" id="inputPassword" class="form-control" placeholder="Password" required>
-                            <label for="inputPassword">Password</label>
                         </div>
 
                         <div class="custom-control custom-checkbox mb-3">
@@ -60,4 +60,4 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         </div>
     </div>
 </div>
-<?php include './footer.php';?>
+<?php include './footer.php'; ?>

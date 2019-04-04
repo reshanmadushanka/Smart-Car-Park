@@ -1,9 +1,6 @@
 <?php
 
 include "../database/config.php";
-$rolse = $db->prepare("SELECT * FROM tbl_role");
-$rolse->execute();
-$role = $rolse->fetchAll(); //insert in to array
 if ("POST" == $_SERVER["REQUEST_METHOD"]) {
     if (isset($_FILES['file'])) {
         $errors = array();
@@ -18,8 +15,8 @@ if ("POST" == $_SERVER["REQUEST_METHOD"]) {
             move_uploaded_file($file_tmp, "../assets/img/" . $file_name);
             $sql = $db->prepare("INSERT INTO `tbl_slider`(`image`, `title`) VALUES ('$file_name', '$title' )");
             $sql->execute();
-            $_SESSION['success']="User Update Successful";
-            header("location: slider_form.php");
+            $_SESSION['success']="Slider Update Successful";
+            header("location: slider_list.php");
         } else {
             print_r($errors);
         }
@@ -33,7 +30,7 @@ include '../admin/header.php';
             <div class="header-small">
 
                 <div class="items">
-                    <h1 class="subhead">Profile</h1>
+                    <h1 class="subhead">Image Slider</h1>
 <!--
                     <aside class="pure-message message-success">
                         <p><strong>SUCCESS</strong>: Success message.</p>
@@ -46,11 +43,11 @@ include '../admin/header.php';
                     </aside> -->
                     <form action="slider_add.php" enctype="multipart/form-data" method="post" autocomplete="off" class="pure-form pure-form-stacked">
                         <fieldset>
-                            <label for="firstname">Title</label>
+                            <label for="title">Title</label>
                             <input required id="title" name="title" type="text" placeholder="Title" class="pure-input-1" value="">
 
-                            <label for="lastname">Image </label>
-                            <input required id="file" name="file" type="file" placeholder="Last Name" class="pure-input-1" value="">
+                            <label for="file">Image </label>
+                            <input required id="file" name="file" type="file" placeholder="file" class="pure-input-1" value="">
 
                             <!-- <input type="hidden" name="id" value="1"> -->
                             <button type="submit" class="pure-button button-success">Save</button>

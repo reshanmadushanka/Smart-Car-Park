@@ -33,7 +33,7 @@ session_start();
                             <a href="parking-list.php" class="pure-menu-link">Parking Management</a>
                         </li>
                         <li>
-                            <a href="slider_form.php" class="pure-menu-link">Slider Management</a>
+                            <a href="slider_list.php" class="pure-menu-link">Slider Management</a>
                         </li>
                         <li>
                             <a href="booking_list.php" class="pure-menu-link">Booking Management</a>

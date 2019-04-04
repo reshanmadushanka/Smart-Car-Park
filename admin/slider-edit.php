@@ -21,10 +21,10 @@ if (isset($_GET['id'])) {
                             <label for="title">Title</label>
                             <input required id="title" name="title" type="text" placeholder="Title" class="pure-input-1" value="<?=$data['title'] ?>">
 
-                            <label for="file">Image </label>
+                            <label for="file">Upload the Image </label>
                             <input required id="file" name="file" type="file" placeholder="file" class="pure-input-1" value="">
 
-                            <!-- <input type="hidden" name="id" value="1"> -->
+                            <input type="hidden" name="id" value="<?= $id ?>">
                             <button type="submit" class="pure-button button-success">Save</button>
                         </fieldset>
                     </form>

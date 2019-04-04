@@ -40,16 +40,16 @@
                 <div class="collapse navbar-collapse" id="navbarResponsive">
                     <ul class="navbar-nav ml-auto">
                         <li class="nav-item">
-                            <a class="nav-link js-scroll-trigger" href="#about">About</a>
+                            <a class="nav-link js-scroll-trigger" href="about.php">About</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link js-scroll-trigger" href="#services">Services</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link js-scroll-trigger" href="#portfolio">Parking</a>
+                            <a class="nav-link js-scroll-trigger" href="parking.php">Parking</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link js-scroll-trigger" href="#contact">Contact</a>
+                            <a class="nav-link js-scroll-trigger" href="contact.php">Contact</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link js-scroll-trigger" href = "logout.php">Sign Out</a>

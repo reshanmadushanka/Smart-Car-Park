@@ -16,7 +16,7 @@ if ("POST" == $_SERVER["REQUEST_METHOD"]) {
             $sql = $db->prepare("INSERT INTO `tbl_slider`(`image`, `title`) VALUES ('$file_name', '$title' )");
             $sql->execute();
             $_SESSION['success']="Slider Update Successful";
-            header("location: slider_form.php");
+            header("location: slider_list.php");
         } else {
             print_r($errors);
         }
@@ -30,7 +30,7 @@ include '../admin/header.php';
             <div class="header-small">
 
                 <div class="items">
-                    <h1 class="subhead">Profile</h1>
+                    <h1 class="subhead">Image Slider</h1>
 <!--
                     <aside class="pure-message message-success">
                         <p><strong>SUCCESS</strong>: Success message.</p>

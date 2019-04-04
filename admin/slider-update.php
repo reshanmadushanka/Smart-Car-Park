@@ -14,13 +14,20 @@ if ("POST" == $_SERVER["REQUEST_METHOD"]) {
 
         if (empty($errors) == true) {
         move_uploaded_file($file_tmp, "../assets/img/" . $file_name);
-        $sql = $db->prepare("INSERT INTO `tbl_slider`(`image`, `title`) VALUES ('$file_name', '$title' )");
+        $sql = $db->prepare("UPDATE `tbl_slider` SET `image`='$file_name',`title`='$title' WHERE `id`='$id' ");
         $sql->execute();
         $_SESSION['success']="Slider Update Successful";
-        header("location: slider_form.php");
+        header("location: slider_list.php");
         } else {
         print_r($errors);
         }
     }
+    if ($sql) {
+        $_SESSION['success']="Slider Update Successful";
+        header("location: ../admin/slider_list.php");
+       } else {
+        $_SESSION['success']="Slider Update Not Successful";
+        header("location: ../admin/slider_list.php");
+       }
 }
 

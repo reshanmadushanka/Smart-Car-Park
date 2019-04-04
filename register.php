@@ -31,38 +31,37 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") { //check data passing method
                     <?=$msg?>
                     <form class="form-signin" method="post" action="register.php">
                         <div class="form-label-group">
-                            <input name="email" type="email" id="inputEmail" class="form-control" placeholder="Email address" required autofocus>
-                            <label for="inputEmail">Email address</label>
+                        <label for="inputEmail">Email address</label><br>
+                        <input name="email" type="email" id="inputEmail" class="form-control" placeholder="Email address" required autofocus>                          
                         </div>
                         <div class="form-label-group">
-                            <input name="f_name" type="text" id="f_name" class="form-control" placeholder="User Name" required autofocus>
-                            <label for="f_name">First Name</label>
+                        <label for="f_name">First Name</label><br>
+                        <input name="f_name" type="text" id="f_name" class="form-control" placeholder="First Name" required autofocus>                            
                         </div>
                          <div class="form-label-group">
-                            <input name="l_name" type="text" id="l_name" class="form-control" placeholder="User Name" required autofocus>
-                            <label for="l_name">Last Name</label>
+                         <label for="l_name">Last Name</label><br>
+                         <input name="l_name" type="text" id="l_name" class="form-control" placeholder="Last Name" required autofocus>                            
                         </div>
                         <div class="form-label-group">
-                            <input name="nic" type="text" id="nic" class="form-control" placeholder="User Name" required autofocus>
-                            <label for="nic">NIC</label>
+                        <label for="nic">NIC No.</label><br>
+                        <input name="nic" type="text" id="nic" class="form-control" placeholder="NIC No." required autofocus>                            
                         </div>
                         <div class="form-label-group">
-                            <input name="mobile" type="number" id="mobile" class="form-control" placeholder="User Name" required autofocus>
-                            <label for="mobile">Mobile</label>
+                        <label for="mobile">Mobile</label><br>
+                        <input name="mobile" type="text" id="mobile" class="form-control" placeholder="Mobile" required autofocus>                            
                         </div>
                         <div class="form-label-group">
-                            <input name="city" type="text" id="city" class="form-control" placeholder="User Name" required autofocus>
-                            <label for="city">City</label>
+                        <label for="city">City</label><br>
+                        <input name="city" type="text" id="city" class="form-control" placeholder="City" required autofocus>                            
                         </div>
                         <input type="hidden" name="type" id="type" value="custommer" />
                         <div class="form-label-group">
-                            <input name="password" type="password" id="inputPassword" class="form-control" placeholder="Password" required>
-                            <label for="inputPassword">Password</label>
+                        <label for="inputPassword">Password</label><br>
+                        <input name="password" type="password" id="inputPassword" class="form-control" placeholder="Password" required>                           
                         </div>
-
                         <div class="custom-control custom-checkbox mb-3">
-                            <input type="checkbox" class="custom-control-input" id="customCheck1">
-                            <label class="custom-control-label" for="customCheck1">Remember password</label>
+                        <label class="custom-control-label" for="customCheck1">Remember password</label>
+                        <input type="checkbox" class="custom-control-input" id="customCheck1">                            
                         </div>
                         <button class="btn btn-lg btn-primary btn-block text-uppercase" type="submit">Register</button>
                         <hr class="my-4">

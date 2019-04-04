@@ -69,7 +69,7 @@
             <div class="col-lg-3 col-md-6 text-center">
                 <div class="service-box mt-5 mx-auto">
                     <i class="fas fa-4x fa-gem text-primary mb-3 sr-icon-1"></i>
-                    <h3 class="mb-3">Sturdy Templates</h3>
+                    <h3 class="mb-3">Study Templates</h3>
                     <p class="text-muted mb-0">Online Free User Registration</p>
                 </div>
             </div>

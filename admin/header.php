@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Smart Car Parking">
     <title>Admin Panel</title>
-
     <link rel="stylesheet" href="../assets/admin/css/pure-min.css">
     <link rel="stylesheet" href="../assets/admin/css/pure-responsive-min.css">
     <link rel="stylesheet" href="../assets/admin/css/style.css">

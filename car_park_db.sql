@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.8.4
+-- version 4.7.4
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 03, 2019 at 06:12 PM
--- Server version: 10.1.37-MariaDB
--- PHP Version: 7.3.0
+-- Generation Time: Apr 06, 2019 at 06:58 AM
+-- Server version: 10.1.30-MariaDB
+-- PHP Version: 7.2.1
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -100,10 +100,9 @@ CREATE TABLE `tbl_slider` (
 --
 
 INSERT INTO `tbl_slider` (`id`, `image`, `title`, `timestamp`) VALUES
-(1, 'viber image2.jpg', 'edwefw', '2019-04-02 19:14:33'),
-(2, 'viber image2.jpg', 'edwefw', '2019-04-02 19:15:29'),
-(3, 'viber image2.jpg', 'ewefwefw', '2019-04-02 19:17:14'),
-(4, 'viber image2.jpg', 'ewefwef', '2019-04-02 19:17:51');
+(1, '2.jpg', 'Car Park ', '2019-04-02 19:14:33'),
+(2, 'camconsults.jpg', 'edwefw', '2019-04-02 19:15:29'),
+(3, '023-automating-video-testing-for-smart-parking-system.jpg', 'Omea', '2019-04-06 03:16:34');
 
 -- --------------------------------------------------------
 
@@ -123,20 +122,10 @@ CREATE TABLE `tbl_slot` (
 --
 
 INSERT INTO `tbl_slot` (`id`, `slot_name`, `status`, `timestamp`) VALUES
-(1, 'slot 1', 1, '2019-03-09 18:16:57'),
+(1, 'slot 1', 0, '2019-03-09 18:16:57'),
 (2, 'slot 2', 1, '2019-03-09 18:16:57'),
 (3, 'slot3', 1, '2019-04-01 16:20:41'),
 (4, 'slot4', 0, '2019-04-01 16:20:41');
-
--- --------------------------------------------------------
-
---
--- Table structure for table `tbl_time`
---
-
-CREATE TABLE `tbl_time` (
-  `id` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -162,7 +151,6 @@ CREATE TABLE `tbl_user` (
 --
 
 INSERT INTO `tbl_user` (`id`, `f_name`, `l_name`, `NIC`, `mobile`, `city`, `email`, `password`, `role_id`, `timestamp`) VALUES
-(1, 'Omega', 'Rathnayaka', '913745882v', '0714852233', 'galle', 'omega@gmail.com', '$2y$10$gBYvYzCP4cw.waKfVxikZOuB7TABxmCZBGkhQinKjhwCEVO6xmlve', 2, '2019-03-20 06:52:27'),
 (2, 'admin', 'car', '912455663v', '0714852233', 'galle', 'admin@gmail.com', '$2y$10$CYFlVw3l8zCLgcROdWQQcOmqfpqcfgYeivUVMqG9CMbpULUKiXFRK', 1, '2019-03-20 07:15:06');
 
 --
@@ -197,12 +185,6 @@ ALTER TABLE `tbl_slider`
 -- Indexes for table `tbl_slot`
 --
 ALTER TABLE `tbl_slot`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `tbl_time`
---
-ALTER TABLE `tbl_time`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -241,19 +223,13 @@ ALTER TABLE `tbl_role`
 -- AUTO_INCREMENT for table `tbl_slider`
 --
 ALTER TABLE `tbl_slider`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `tbl_slot`
 --
 ALTER TABLE `tbl_slot`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
-
---
--- AUTO_INCREMENT for table `tbl_time`
---
-ALTER TABLE `tbl_time`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `tbl_user`

@@ -10,7 +10,7 @@ foreach ($data as $slots) {
 }
 ?>
 <div class="filter-box col-lg-12 pull-left">
-<div class="container">
+<!-- <div class="container">
 
         <form method="post" action="parking-search.php"  class="col-lg-12 pull-left">
             <div class="col-lg-4 pull-left">
@@ -27,14 +27,14 @@ foreach ($data as $slots) {
             </div>
         </form>
 
-</div>
+</div> -->
 </div>
 
 <div id="parking" class="col-lg-12 pull-left">
     <div class="container">
         <div class="row">
             <div class="col-lg-12 text-center ">
-                <h2 class="text-white">Parking Slots</h2>
+                <h2 class="text-white">Parking Slot Status</h2>
 
             </div>
         </div>
@@ -70,10 +70,12 @@ foreach ($data as $slots) {
 <?php include './footer.php';?>
 <script>
 $( document ).ready(function() {
+    //get data from database
     function update() {
+
     $.ajax({
         url: 'parking-data.php', //php
-        data: "", //the data "caller=name1&&callee=name2"
+        data: "",         //the data "caller=name1&&callee=name2"
         dataType: 'json', //data format
         success: function (data) {
 // slot 1----------------------------
@@ -104,7 +106,7 @@ $( document ).ready(function() {
     });
 }
 
-setInterval(update, 1000); //every 10 secs
+setInterval(update, 500); //every 10 secs
 
 });
 

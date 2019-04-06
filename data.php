@@ -1,13 +1,20 @@
 <?php
 include("./database/config.php");
-$msg = "";
-if ($_SERVER["REQUEST_METHOD"] == "POST") {//check data passing method
-    //slot one
-    $status = $_POST['distances_s1'];
-    // print_r($_POST['distances_s2']);
-  
+//check data passing method
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    //get slot status from arduino
+    $status1 = $_POST['s1_status'];
+    $status2 = $_POST['s2_status'];
+    $status3 = $_POST['s3_status'];
+    $status4 = $_POST['s4_status'];
     //update database
-    $sql = $db->prepare("UPDATE `tbl_slot` SET `status` = '$status' WHERE `tbl_slot`.`id` = 2"); //insert in to the database
-    $sql->execute();
+    $sql1 = $db->prepare("UPDATE `tbl_slot` SET `status` = '$status1' WHERE `tbl_slot`.`id` = 1"); //insert in to the database
+    $sql1->execute();
+    $sql2 = $db->prepare("UPDATE `tbl_slot` SET `status` = '$status2' WHERE `tbl_slot`.`id` = 2"); //insert in to the database
+    $sql2->execute();
+    $sql3 = $db->prepare("UPDATE `tbl_slot` SET `status` = '$status3' WHERE `tbl_slot`.`id` = 3"); //insert in to the database
+    $sql3->execute();
+    $sql4 = $db->prepare("UPDATE `tbl_slot` SET `status` = '$status4' WHERE `tbl_slot`.`id` = 4"); //insert in to the database
+    $sql4->execute();
    
 }

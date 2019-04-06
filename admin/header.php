@@ -24,7 +24,7 @@ session_start();
                     </p>
                     <ul class="pure-menu-list">
                         <li class="pure-menu-selected">
-                            <a href="dashboard.html" class="pure-menu-link">Dashboard</a>
+                            <a href="iindex.php" class="pure-menu-link">Dashboard</a>
                         </li>
                         <li>
                             <a href="user_list.php" class="pure-menu-link">User Management</a>

@@ -16,13 +16,13 @@ if (isset($_GET['id'])) {
 
                 <div class="items">
                     <h1 class="subhead">Image Slider</h1>
-                    <form action="slider-update.php" method="post" autocomplete="off" class="pure-form pure-form-stacked">
+                    <form action="slider-update.php" enctype="multipart/form-data" method="post" autocomplete="off" class="pure-form pure-form-stacked">
                     <fieldset>
                             <label for="title">Title</label>
                             <input required id="title" name="title" type="text" placeholder="Title" class="pure-input-1" value="<?=$data['title'] ?>">
 
                             <label for="file">Upload the Image </label>
-                            <input required id="file" name="file" type="file" placeholder="file" class="pure-input-1" value="">
+                            <input id="file" name="file" type="file" placeholder="file" class="pure-input-1" value="">
 
                             <input type="hidden" name="id" value="<?= $id ?>">
                             <button type="submit" class="pure-button button-success">Save</button>

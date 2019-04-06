@@ -1,4 +1,10 @@
-<?php include './header.php'; ?>
+<?php 
+include("./database/config.php");
+$sql = $db->prepare("SELECT * FROM `tbl_slider`");
+$sql->execute(); //execute query
+$slider = $sql->fetchAll(); //insert in to array
+include './header.php'; 
+?>
 <header>
     <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
         <ol class="carousel-indicators">
@@ -8,13 +14,15 @@
         </ol>
         <div class="carousel-inner" role="listbox">
             <!-- Slide One - Set the background image for this slide in the line below -->
-            <div class="carousel-item active" >
-                <img class="d-block w-100" src="./assets/img/portfolio/fullsize/023-automating-video-testing-for-smart-parking-system.jpg" alt="First slide">
+            <?php foreach($slider as $item){?>
+            <div class="carousel-item <?= $item['id'] == 1 ? 'active':''; ?>" >
+                <img class="d-block w-100" src="./assets/img/<?= $item['image']?>" alt="First slide">
                 <div class="carousel-caption d-none d-md-block">
-                    <h3>First Slide</h3>
-                    <p>This is a description for the first slide.</p>
+                    <h3><?= $item['title'] ?></h3>
+                    <p>Smart Car Parking</p>
                         </div>
             </div>
+            <?php } ?>
             <!-- Slide Two - Set the background image for this slide in the line below -->
             <div class="carousel-item" >
                 <img class="d-block w-100" src="./assets/img/portfolio/fullsize/camconsults.jpg" alt="First slide">

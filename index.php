@@ -19,7 +19,7 @@ include './header.php';
                 <img class="d-block w-100" src="./assets/img/<?= $item['image']?>" alt="First slide">
                 <div class="carousel-caption d-none d-md-block">
                     <h3><?= $item['title'] ?></h3>
-                    <p>Smart Car Parking</p>
+                    <p>SVPRS</p>
                         </div>
             </div>
             <?php } ?>
@@ -30,15 +30,7 @@ include './header.php';
                     <h3>Second Slide</h3>
                     <p>This is a description for the second slide.</p>
                 </div>
-            </div>
-            <!-- Slide Three - Set the background image for this slide in the line below -->
-            <div class="carousel-item" >
-                <img class="d-block w-100" src="./assets/img/portfolio/fullsize/smart-parking-system-raspberry-pi.png" alt="First slide">
-                <div class="carousel-caption d-none d-md-block">
-                    <h3>Third Slide</h3>
-                    <p>This is a description for the third slide..</p>
-                </div>
-            </div>
+            </div>           
         </div>
         <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
             <span class="carousel-control-prev-icon" aria-hidden="true"></span>

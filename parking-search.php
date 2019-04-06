@@ -68,6 +68,7 @@ foreach ($slotdata as $slotval) {?>
                 <h3 class="text-white"><?=$slotval['slot_name']?> </h3>
 <!-- send data to booking --><?php if($slotval['status']!='0'){ ?>
                 <form action="booking.php" method="post" >
+                <input type="hidden" name="slot_name" value="<?=$slotval['slot_name'];?>">
                 <input type="hidden" name="slot_id" value="<?=$slotval['id'];?>">
                 <input type="hidden" name="date" value="<?=$date;?>">
                 <input type="hidden" name="t_from" value="<?=$f_time;?>">

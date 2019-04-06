@@ -28,7 +28,7 @@ $data = $sql->fetchAll(); //insert in to array ?>
                         <?php foreach ($data as $sliders) {?>
                         <tr>
                             <td><?=$sliders['id'];?></td>
-                            <td><img style="height:100px" src="../assets/img/<?= $sliders['image']?>" alt=""></td>
+                            <td><img style="height:150px; width: 250px"  src="../assets/img/<?= $sliders['image']?>" alt=""></td>
                             <td><?= $sliders['title'];?></td>
                             <td>
                                 <a class="pure-button button-small button-success" href="slider-edit.php?id=<?php echo $sliders['id']; ?>">Edit</a>

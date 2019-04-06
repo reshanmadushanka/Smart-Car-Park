@@ -44,13 +44,16 @@
                             <a class="nav-link js-scroll-trigger" href="about.php">About</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link js-scroll-trigger" href="parking.php">Parking</a>
-                        </li>
-                        <li class="nav-item">
                             <a class="nav-link js-scroll-trigger" href="contact.php">Contact</a>
                         </li>
                         <li class="nav-item">
+                            <a class="nav-link js-scroll-trigger" href="parking.php">Parking</a>
+                        </li>                        
+                        <li class="nav-item">
                             <a class="nav-link js-scroll-trigger" href = "logout.php">Login</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link js-scroll-trigger" href = "register.php">Register</a>
                         </li>
                     </ul>
                 </div>

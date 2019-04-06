@@ -25,6 +25,7 @@
         <link href="./assets/css/creative.min.css" rel="stylesheet">
         <link href="./assets/css/full-slider.css" rel="stylesheet">
         <link href="./assets/css/custom.css" rel="stylesheet">
+        <link href="./assets/css/jquery.datetimepicker.css" rel="stylesheet" type="text/css" />
 
     </head>
 

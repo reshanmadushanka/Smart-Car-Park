@@ -3,8 +3,8 @@ include "./database/config.php";
 session_start();
 if ($_SERVER["REQUEST_METHOD"] == "POST") { //check data passing method
     $date = $_POST['date'];
-    $f_time = $_POST['time']; //real search time =from time
-    $timestamp = (strtotime($f_time) + 60 * 60); //add one hour
+    $f_time = $_POST['time_from']; //real search time =from time
+    $t_time = $_POST['time_to'];
     $time = date('H:i', $timestamp);//after add one hour =to time
 //get booking data with slot detail------------
     $sql = $db->prepare("SELECT
@@ -15,7 +15,7 @@ FROM
 `tbl_booking`
 INNER JOIN tbl_slot ON tbl_slot.id = tbl_booking.slot_id
 WHERE
-tbl_booking.from >= '$f_time' AND tbl_booking.from < '$time' AND tbl_booking.book_date = '$date'");
+tbl_booking.from >= '$f_time' AND tbl_booking.from < '$t_time' AND tbl_booking.to >= '$f_time' AND tbl_booking.to < '$t_time' AND tbl_booking.book_date = '$date'");
 //11.00=< x <12.00 
     $sql->execute(); //execute query
     $data = $sql->fetchAll(); //insert in to array
@@ -31,7 +31,7 @@ WHERE
     FROM
         tbl_booking
     WHERE
-        tbl_booking.from >= '$f_time' AND tbl_booking.from < '$time' AND tbl_booking.book_date = '$date'
+    tbl_booking.from >= '$f_time' AND tbl_booking.from < '$t_time' AND tbl_booking.to >= '$f_time' AND tbl_booking.to < '$t_time' AND tbl_booking.book_date = '$date'
 );");
     $slot->execute();
     $slotdata = $slot->fetchAll();
@@ -66,14 +66,15 @@ foreach ($slotdata as $slotval) {?>
             <div class="col-lg-3 col-md-6 text-center">
                 <div id="park2" class="parking-box mt-5 mx-auto <?=$slotval['status'] == '0' ? 'parked' : '';?>">
                 <h3 class="text-white"><?=$slotval['slot_name']?> </h3>
-<!-- send data to booking -->
+<!-- send data to booking --><?php if($slotval['status']!='0'){ ?>
                 <form action="booking.php" method="post" >
                 <input type="hidden" name="slot_id" value="<?=$slotval['id'];?>">
                 <input type="hidden" name="date" value="<?=$date;?>">
                 <input type="hidden" name="t_from" value="<?=$f_time;?>">
-                <input type="hidden" name="t_to" value="<?=$time;?>">
+                <input type="hidden" name="t_to" value="<?=$t_time;?>">
                  <input class="btn btn-light btn-xl js-scroll-trigger" type="submit" value="Click to Book">
                 </form>
+<?php }?>
                 <p  class="text-white"><?=$slotval['status'] == '0' ? 'Now Parked' : '';?></p>
                  </div>
             </div>

@@ -64,7 +64,7 @@ include './header.php';
 </section>
 
 <section id="services">
-    <div class="container">
+    <div class="container text-white">
         <div class="row">
             <div class="col-lg-12 text-center">
                 <h2 class="section-heading">At Your Service</h2>
@@ -109,7 +109,7 @@ include './header.php';
 
 
 <section id="contact">
-    <div class="container">
+    <div class="container text-white">
         <div class="row">
             <div class="col-lg-8 mx-auto text-center">
                 <h2 class="section-heading">Let's Get In Touch!</h2>

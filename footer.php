@@ -10,4 +10,5 @@
 
 <!-- Custom scripts for this template -->
 <script src="./assets/js/creative.min.js"></script>
+<script src="./assets/js/jquery.datetimepicker.full.js"></script>
 

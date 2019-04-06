@@ -9,25 +9,36 @@ $data = $sql->fetchAll(); //insert in to array
 foreach ($data as $slots) {
 }
 ?>
-<div class="filter-box col-lg-12 pull-left">
-<!-- <div class="container">
-
-        <form method="post" action="parking-search.php"  class="col-lg-12 pull-left">
-            <div class="col-lg-4 pull-left">
+<br>
+<br>
+<br>
+<div class="filter-box col-lg-12 pull-left text-white">
+<div class="container">
+<div class="row">
+        <form method="post" action="parking-search.php"  class="col-lg-12">
+            <div class="col-lg-12">
+            <div class="col-lg-4 ">
             <label for="date">Date</label>
-                <input name="date" class="form-control" type="date">
+                <input name="date" id="datepick" class="form-control" type="text">
             </div>
-            <div class="col-lg-4 pull-left">
-            <label for="date">Date</label>
-                    <input name="time" type='time' class="form-control" />
+            <div class="col-lg-4 ">
+            <label for="date">Time From</label>
+                    <input name="time_from" type='text' id="timpick" class="form-control" />
                 </div>
             </div>
-            <div class="col-lg-12 pull-left">
+            <div class="col-lg-4 ">
+            <label for="date">Time To</label>
+                    <input name="time_to" type='text' id="time_to" class="form-control" />
+                </div>
+            </div>
+            
+            <div class="col-lg-12 form-group">
                 <button type="submit">Search</button>
             </div>
+            </div>
         </form>
-
-</div> -->
+        </div>
+</div>
 </div>
 
 <div id="parking" class="col-lg-12 pull-left">
@@ -65,11 +76,17 @@ foreach ($data as $slots) {
         </div>
     </div>
 </div>
-
-
 <?php include './footer.php';?>
 <script>
-$( document ).ready(function() {
+$(document).ready(function() {
+    jQuery('#datepick').datetimepicker({
+        timepicker:false,
+        format:'Y/m/d',
+});
+jQuery('#timpick,#time_to').datetimepicker({
+  datepicker:false,
+  format:'H:i'
+});
     //get data from database
     function update() {
 
@@ -112,5 +129,4 @@ setInterval(update, 500); //every 10 secs
 
 </script>
 </body>
-
 </html>

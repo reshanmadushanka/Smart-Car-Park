@@ -13,7 +13,9 @@ $price = $_POST['price'] ;
 //insert into tbl_booking
 $sql1=$db->prepare("INSERT INTO `tbl_booking`( `user_id`, `book_date`, `from`, `to`, `slot_id`, `vehical_no`, `no_of_hours`) VALUES ( '$user_id', '$book_date', '$from', '$to', '$slot_id', '$vehical_no', '$no_of_hours') ");
 $sql1->execute(); //execute query
-
+$book_id = $sql1->lastInsertId();
+print_r($book_id);
+die();
 include './header.php';
 
 ?>

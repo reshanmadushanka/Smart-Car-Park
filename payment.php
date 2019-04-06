@@ -11,8 +11,14 @@ $no_of_hours = $_POST['no_of_hours'];
 $price = $_POST['price'] ;
 
 //insert into tbl_booking
-$sql1=$db->prepare("INSERT INTO `tbl_booking`( `user_id`, `book_date`, `from`, `to`, `slot_id`, `vehical_no`, `no_of_hours`) VALUES ( '$user_id', '$book_date', '$from', '$to', '$slot_id', '$vehical_no', '$no_of_hours') ");
+$sql1=$db->prepare("INSERT INTO `tbl_booking`( `user_id`, `book_date`, `from`, `to`, `slot_id`, `vehical_no`, `no_of_hours`) VALUES ( '$user_id', '$book_date', '$from', '$to', '$slot_id', '$vehical_no', '$no_of_hours')");
 $sql1->execute(); //execute query
+$booking_id = $db->lastInsertId();
+
+//insert data into tbl_payment when click submit button
+
+    $sql2=$db->prepare("INSERT INTO `tbl_payment`(`user_id`, `booking_id`, `amount`) VALUES ('$user_id', '$booking_id', '$price')");
+    $sql2->execute(); //execute query
 
 include './header.php';
 
@@ -53,11 +59,15 @@ include './header.php';
                     <input name="exp_date" class="form-control" type="date" required="true">
                 </div>
                 <div class="col-lg-12 pull-left">
+                    <label class="text-white" for="date">Security Code</label>
+                    <input name="Sec_code" class="form-control" type="text" required="true">
+                </div>
+                <div class="col-lg-12 pull-left">
                     <label class="text-white" for="date">Amount</label>
                     <input name="price" value="<?= $_POST['price'] ?>" class="form-control" type="text" readonly>
                 </div>
                 <div class="col-lg-12 pull-left">
-                    <button type="submit">Pay Now</button>
+                    <button name="submit" type="submit">Pay Now</button>
                 </div>
             </form>
         </div>

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 06, 2019 at 06:58 AM
+-- Generation Time: Apr 07, 2019 at 01:05 PM
 -- Server version: 10.1.30-MariaDB
 -- PHP Version: 7.2.1
 
@@ -35,6 +35,8 @@ CREATE TABLE `tbl_booking` (
   `from` time NOT NULL,
   `to` time NOT NULL,
   `slot_id` int(11) NOT NULL,
+  `vehical_no` varchar(11) NOT NULL,
+  `no_of_hours` int(11) NOT NULL,
   `timestamp` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -42,14 +44,17 @@ CREATE TABLE `tbl_booking` (
 -- Dumping data for table `tbl_booking`
 --
 
-INSERT INTO `tbl_booking` (`id`, `user_id`, `book_date`, `from`, `to`, `slot_id`, `timestamp`) VALUES
-(1, 1, '2019-03-26', '11:00:00', '11:30:00', 1, '2019-03-26 18:20:44'),
-(4, 1, '2019-03-26', '10:30:00', '11:00:00', 2, '2019-03-26 18:24:39'),
-(5, 1, '2019-04-26', '00:00:00', '00:00:00', 1, '2019-04-02 18:28:13'),
-(6, 1, '2019-04-26', '00:00:00', '00:00:00', 1, '2019-04-02 18:28:57'),
-(7, 1, '2019-04-26', '10:00:00', '11:00:00', 3, '2019-04-02 18:29:50'),
-(8, 1, '2019-04-26', '10:00:00', '11:00:00', 1, '2019-04-02 18:30:08'),
-(9, 1, '2019-04-26', '10:00:00', '11:00:00', 4, '2019-04-02 18:35:16');
+INSERT INTO `tbl_booking` (`id`, `user_id`, `book_date`, `from`, `to`, `slot_id`, `vehical_no`, `no_of_hours`, `timestamp`) VALUES
+(18, 3, '2019-04-26', '10:00:00', '11:00:00', 2, 'BN-6785', 1, '2019-04-06 17:32:16'),
+(19, 3, '2019-04-16', '19:00:00', '20:00:00', 2, 'VX-2345', 1, '2019-04-06 17:40:42'),
+(27, 3, '2019-04-10', '01:00:00', '03:00:00', 2, 'VX-2345', 2, '2019-04-06 18:31:24'),
+(28, 3, '2019-04-10', '01:00:00', '03:00:00', 2, 'BB-6666', 2, '2019-04-06 18:32:06'),
+(30, 3, '2019-04-10', '01:00:00', '03:00:00', 2, 'ccv-4444', 2, '2019-04-06 18:36:21'),
+(36, 3, '2019-04-29', '11:00:00', '13:00:00', 2, 'SXD-7897', 2, '2019-04-07 03:45:52'),
+(37, 4, '2019-04-08', '08:00:00', '11:00:00', 1, 'BFX-5674', 3, '2019-04-07 10:54:46'),
+(38, 4, '2019-04-08', '08:00:00', '11:00:00', 1, 'BFX-5674', 3, '2019-04-07 10:55:29'),
+(39, 5, '2019-04-08', '13:00:00', '20:00:00', 3, 'TRS-5503', 7, '2019-04-07 11:01:54'),
+(40, 5, '2019-04-08', '13:00:00', '19:00:00', 3, 'YTS-8235', 6, '2019-04-07 11:03:33');
 
 -- --------------------------------------------------------
 
@@ -58,8 +63,24 @@ INSERT INTO `tbl_booking` (`id`, `user_id`, `book_date`, `from`, `to`, `slot_id`
 --
 
 CREATE TABLE `tbl_payment` (
-  `id` int(11) NOT NULL
+  `id` int(11) NOT NULL,
+  `user_id` int(11) NOT NULL,
+  `booking_id` int(11) NOT NULL,
+  `amount` int(11) NOT NULL,
+  `status` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `tbl_payment`
+--
+
+INSERT INTO `tbl_payment` (`id`, `user_id`, `booking_id`, `amount`, `status`) VALUES
+(1, 0, 35, 100, ''),
+(2, 3, 36, 200, 'online'),
+(3, 4, 37, 300, 'online'),
+(4, 4, 38, 300, 'online'),
+(5, 5, 39, 700, 'online'),
+(6, 5, 40, 600, 'online');
 
 -- --------------------------------------------------------
 
@@ -100,9 +121,12 @@ CREATE TABLE `tbl_slider` (
 --
 
 INSERT INTO `tbl_slider` (`id`, `image`, `title`, `timestamp`) VALUES
-(1, '2.jpg', 'Car Park ', '2019-04-02 19:14:33'),
-(2, 'camconsults.jpg', 'edwefw', '2019-04-02 19:15:29'),
-(3, '023-automating-video-testing-for-smart-parking-system.jpg', 'Omea', '2019-04-06 03:16:34');
+(1, 'SVPRS5.jpeg', 'Display Available Free Parking Slots', '2019-04-02 19:14:33'),
+(2, 'SVPRS7.jpg', 'Parking Space Management', '2019-04-02 19:15:29'),
+(3, 'SVPRS2.jpg', 'Online Slot Booking Facility', '2019-04-06 03:16:34'),
+(4, 'SVPRS5.jpg', 'Automated Parking Environment', '2019-04-06 16:10:46'),
+(5, 'SVPRS1.jpg', 'Slot Status Indication', '2019-04-06 16:11:33'),
+(6, 'SVPRS3.jpg', 'Userfriendly Parking Managment System', '2019-04-06 16:12:29');
 
 -- --------------------------------------------------------
 
@@ -122,8 +146,8 @@ CREATE TABLE `tbl_slot` (
 --
 
 INSERT INTO `tbl_slot` (`id`, `slot_name`, `status`, `timestamp`) VALUES
-(1, 'slot 1', 0, '2019-03-09 18:16:57'),
-(2, 'slot 2', 1, '2019-03-09 18:16:57'),
+(1, 'slot1', 1, '2019-03-09 18:16:57'),
+(2, 'slot2', 0, '2019-03-09 18:16:57'),
 (3, 'slot3', 1, '2019-04-01 16:20:41'),
 (4, 'slot4', 0, '2019-04-01 16:20:41');
 
@@ -151,7 +175,13 @@ CREATE TABLE `tbl_user` (
 --
 
 INSERT INTO `tbl_user` (`id`, `f_name`, `l_name`, `NIC`, `mobile`, `city`, `email`, `password`, `role_id`, `timestamp`) VALUES
-(2, 'admin', 'car', '912455663v', '0714852233', 'galle', 'admin@gmail.com', '$2y$10$CYFlVw3l8zCLgcROdWQQcOmqfpqcfgYeivUVMqG9CMbpULUKiXFRK', 1, '2019-03-20 07:15:06');
+(2, 'Admin', 'user', '912455663v', '0714852233', 'galle', 'admin@gmail.com', '$2y$10$CYFlVw3l8zCLgcROdWQQcOmqfpqcfgYeivUVMqG9CMbpULUKiXFRK', 1, '2019-03-20 07:15:06'),
+(3, 'Amal', 'Viraj', '945634564V', '0713422134', 'Colombo', 'amal@gmail.com', '$2y$10$ywyVwa0RqbdZGDseSZhkc.fiblcHiARqh0Eogu6yEjwuQJvM9FoJS', 2, '2019-04-06 09:50:55'),
+(4, 'Harsha', 'Kumara', '945673421V', '0786533149', 'kandy', 'harsha@gmail.com', '$2y$10$IsFEl9ey/NzTkxA.Sm7n3uDDHjNVpm28kehxtIrGywLitVO.QQMMm', 2, '2019-04-07 10:45:14'),
+(5, 'Chamari', 'Herath', '954397890V', '0715564388', 'Gampola', 'chamari@yahoo.com', '$2y$10$iYYT76PTrFma8egpcS1o0udNOZVGF0K1jownwJYlhxtlp5LbIGglO', 2, '2019-04-07 10:46:31'),
+(6, 'Tharuka', 'Rathnayaka', '936753781V', '0775561341', 'Kegalle', 'tharuka@gmail.com', '$2y$10$71MOjQ3LvwRyXCqSHajo5O68qgA05VbNcH7KwsRqRy23DzpimaoVq', 2, '2019-04-07 10:47:32'),
+(7, 'Saman', ' Kumara', '924567390V', '0712239871', 'Mathara', 'saman@yahoo.com', '$2y$10$K..fN0RL4TybPqAOpoSaheIyikx9/pdUggs0A8jcFn//TzJIyPrF2', 2, '2019-04-07 10:49:21'),
+(8, 'Omega', 'Rathnayaka', '924453920V', '0713409864', 'Colombo', 'omega@gmail.com', '$2y$10$ldDi.K.Z8snTA/CLRA1Vp.x.MEqrcyRd5WsC32f231xzdl2vnC7DS', 2, '2019-04-07 10:50:46');
 
 --
 -- Indexes for dumped tables
@@ -205,13 +235,13 @@ ALTER TABLE `tbl_user`
 -- AUTO_INCREMENT for table `tbl_booking`
 --
 ALTER TABLE `tbl_booking`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=41;
 
 --
 -- AUTO_INCREMENT for table `tbl_payment`
 --
 ALTER TABLE `tbl_payment`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `tbl_role`
@@ -223,7 +253,7 @@ ALTER TABLE `tbl_role`
 -- AUTO_INCREMENT for table `tbl_slider`
 --
 ALTER TABLE `tbl_slider`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `tbl_slot`
@@ -235,7 +265,7 @@ ALTER TABLE `tbl_slot`
 -- AUTO_INCREMENT for table `tbl_user`
 --
 ALTER TABLE `tbl_user`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

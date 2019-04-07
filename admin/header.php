@@ -27,18 +27,23 @@ session_start();
                             <a href="iindex.php" class="pure-menu-link">Dashboard</a>
                         </li>
                         <li>
-                            <a href="user_list.php" class="pure-menu-link">User Management</a>
+                            <a href="user_list.php" class="pure-menu-link">User Profile Management</a>
                         </li>
                         <li>
-                            <a href="parking-list.php" class="pure-menu-link">Parking Management</a>
+                            <a href="parking-list.php" class="pure-menu-link">Parking Slot Management</a>
                         </li>
                         <li>
-                            <a href="slider_list.php" class="pure-menu-link">Slider Management</a>
+                            <a href="slider_list.php" class="pure-menu-link">Frontend Management</a>
                         </li>
                         <li>
-                            <a href="booking_list.php" class="pure-menu-link">Booking Management</a>
+                            <a href="booking_list.php" class="pure-menu-link">Slot Booking Management</a>
                         </li>
-                        
+                        <li>
+                            <a href="report_list.php" class="pure-menu-link">User Report Management</a>
+                        </li>
+                        <li>
+                            <a href="user_reservation_list.php" class="pure-menu-link">User Reservation Management</a>
+                        </li>
                     </ul>
                 </div>
             </div>

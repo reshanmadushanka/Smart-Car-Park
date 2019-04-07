@@ -86,37 +86,5 @@ include 'header.php';
 <?php }else{
     header("location: login.php");
 }
-// if ($_SERVER["REQUEST_METHOD"] == "POST") { //check data passing method
-//     if (isset($_SESSION['user_id'])) {
-//         $date = $_POST['date'];
-//         $f_time = $_POST['t_from'];
-//         $t_time = $_POST['t_to'];
-//         $slot_id = $_POST['slot_id'];
-//         $user_id = $_SESSION['user_id'];
-//         $sql = $db->prepare("INSERT INTO `tbl_booking`(  `user_id`, `book_date`, `from`, `to`, `slot_id`) VALUES ('$user_id','$date','$f_time','$t_time','$slot_id')"); //insert in to the database
-//         $sql->execute();
-//         if ($sql) {
-//             $_SESSION['success']="Booking Successful";
-//            } else {
-//             $_SESSION['success']="Error";
-//            }
-//     }else{
-//         header("location: login.php");
-//     }
-// }
-
-
 ?>
-
-
-
-
-
-
-
-
-
-
-
-
 <?php include 'footer.php';?>

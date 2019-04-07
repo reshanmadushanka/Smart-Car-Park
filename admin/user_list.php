@@ -20,7 +20,7 @@ $data = $sql->fetchAll(); //insert in to array ?>
                         <tr>
                             <th>#id</th>
                             <th>Name</th>
-                            <th>EMail</th>
+                            <th>Email</th>
                             <th>Action</th>
                         </tr>
                         </thead>

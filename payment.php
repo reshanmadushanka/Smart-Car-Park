@@ -17,7 +17,7 @@ $booking_id = $db->lastInsertId();
 
 //insert data into tbl_payment when click submit button
 
-    $sql2=$db->prepare("INSERT INTO `tbl_payment`(`user_id`, `booking_id`, `amount`) VALUES ('$user_id', '$booking_id', '$price')");
+    $sql2=$db->prepare("INSERT INTO `tbl_payment`(`user_id`, `booking_id`, `amount`, `status`) VALUES ('$user_id', '$booking_id', '$price', 'online')");
     $sql2->execute(); //execute query
 
 include './header.php';
@@ -30,7 +30,7 @@ include './header.php';
         on <font color="red"><?php print_r($_POST['date']);?></font>
         from <font color="red"><?php print_r($_POST['f_time']); ?></font>
         to <font color="red"><?php print_r($_POST['t_time']); ?> </font>
-        for<font color="red"> <?php print_r($_POST['no_of_hours']); ?>
+        for<font color="red"> <?php print_r($_POST['no_of_hours']); ?></font>
             hour/hours only </h3> <br>
     <div class="container">
         <div class="row">

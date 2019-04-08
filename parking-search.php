@@ -15,7 +15,7 @@ FROM
 `tbl_booking`
 INNER JOIN tbl_slot ON tbl_slot.id = tbl_booking.slot_id
 WHERE
-tbl_booking.from >= '$f_time' AND tbl_booking.from < '$t_time' AND tbl_booking.to >= '$f_time' AND tbl_booking.to < '$t_time' AND tbl_booking.book_date = '$date'");
+tbl_booking.from >= '$f_time' AND tbl_booking.from <= '$t_time' AND tbl_booking.to >= '$f_time' AND tbl_booking.to <= '$t_time' AND tbl_booking.book_date = '$date'");
 //11.00=< x <12.00 
     $sql->execute(); //execute query
     $data = $sql->fetchAll(); //insert in to array

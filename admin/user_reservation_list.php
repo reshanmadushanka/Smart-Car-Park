@@ -1,20 +1,44 @@
 <?php include '../admin/header.php';?>
 <?php
-$sql = $db->prepare("SELECT
-tbl_user.f_name AS customer_name,
-tbl_user.mobile AS contact_no,
-tbl_booking.vehical_no AS vehical_no,
-tbl_booking.book_date AS book_date,
-tbl_booking.no_of_hours AS no_of_hours,
-tbl_payment.status AS payment_status,
-tbl_slot.slot_name AS slot_name
-FROM
-tbl_booking
-INNER JOIN tbl_user ON tbl_user.id = tbl_booking.user_id
-INNER JOIN tbl_payment ON tbl_payment.user_id = tbl_booking.user_id
-INNER JOIN tbl_slot ON tbl_slot.id = tbl_booking.slot_id"); //get data from database
+if(isset($_POST['date'])){
+$s_date = $_POST['date'];
+    $sql = $db->prepare("SELECT
+    tbl_user.f_name AS customer_name,
+    tbl_user.mobile AS contact_no,
+    tbl_booking.vehical_no AS vehical_no,
+    tbl_booking.book_date AS book_date,
+    tbl_booking.no_of_hours AS no_of_hours,
+    tbl_payment.status AS payment_status,
+    tbl_slot.slot_name AS slot_name
+    FROM
+    tbl_booking
+    INNER JOIN tbl_user ON tbl_user.id = tbl_booking.user_id
+    INNER JOIN tbl_payment ON tbl_payment.user_id = tbl_booking.user_id
+    INNER JOIN tbl_slot ON tbl_slot.id = tbl_booking.slot_id
+    where tbl_booking.book_date = '$s_date' "); //get data from database
+    $sql->execute(); //execute query
+    $data = $sql->fetchAll(); //insert in to array 
+}else{
+    $sql = $db->prepare("SELECT
+    tbl_user.f_name AS customer_name,
+    tbl_user.mobile AS contact_no,
+    tbl_booking.vehical_no AS vehical_no,
+    tbl_booking.book_date AS book_date,
+    tbl_booking.no_of_hours AS no_of_hours,
+    tbl_payment.status AS payment_status,
+    tbl_slot.slot_name AS slot_name
+    FROM
+    tbl_booking
+    INNER JOIN tbl_user ON tbl_user.id = tbl_booking.user_id
+    INNER JOIN tbl_payment ON tbl_payment.user_id = tbl_booking.user_id
+    INNER JOIN tbl_slot ON tbl_slot.id = tbl_booking.slot_id"); //get data from database
 $sql->execute(); //execute query
-$data = $sql->fetchAll(); //insert in to array ?>
+$data = $sql->fetchAll(); //insert in to array 
+}
+
+?>F
+
+
 <div class="content pure-u-1 pure-u-md-21-24">
     <div class="header-small">
         <div class="items">
@@ -26,6 +50,18 @@ $data = $sql->fetchAll(); //insert in to array ?>
             </aside>
             <?php
 }?>
+
+<div class="items">
+                    <h1 class="subhead">Slot</h1>
+                    <form action="user_reservation_list.php" method="post" autocomplete="off" class="pure-form pure-form-stacked">
+                        <fieldset>
+                            <label for="firstname">Select Date</label>
+                            <input required id="name" name="date" type="date" placeholder=" Name" class="pure-input-1" >
+
+                        </fieldset>
+                        <button type="submit">Search</button>
+                    </form>
+                </div>
             <table class="pure-table pure-table-bordered">
                 <thead>
                     <tr>

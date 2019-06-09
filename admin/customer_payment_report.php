@@ -36,6 +36,7 @@ $total = 0;
                     <tr>
                         <th>Customer</th>
                         <th>Payment (Rs)</th>
+                        <th>Date</th>
                         <th>From</th>
                         <th>To</th>
                         <th>Vehicle Number</th>
@@ -48,6 +49,7 @@ $total = 0;
                     <tr>
                         <td><?=$booking['f_name'];?></td>
                         <td><?=$booking['amount'];?></td>
+                        <td><?=$booking['book_date'];?></td>
                         <td><?=$booking['from'];?></td>
                         <td><?=$booking['to'];?></td>
                         <td><?=$booking['vehical_no'];?></td>
@@ -59,6 +61,7 @@ $total = 0;
                     <tr>
                         <td>Total</td>
                         <td><?php echo $total;?></td>
+                        <td></td>
                         <td></td>
                         <td></td>
                         <td></td>

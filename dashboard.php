@@ -1,7 +1,6 @@
 <?php
 include './header.php';
 session_start();
-header ("Location: payment.php")
 ?>
 <section>
 <div class="container">

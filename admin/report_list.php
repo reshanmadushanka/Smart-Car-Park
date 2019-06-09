@@ -1,10 +1,13 @@
 <?php include '../admin/header.php';?>
 <?php
 //get customer name list from tbl_user
-$sql1 = $db->prepare("SELECT CONCAT(f_name, ' ' ,l_name) AS customer_name FROM tbl_user"); 
+$sql1 = $db->prepare("SELECT CONCAT(f_name, ' ' ,l_name) AS customer_name,id FROM tbl_user"); 
 $sql1->execute(); 
 $username = $sql1->fetchAll();
-
+// customer list 2
+$customer2 = $db->prepare("SELECT CONCAT(f_name, ' ' ,l_name) AS customer_name,id FROM tbl_user"); 
+$customer2->execute(); 
+$cus_names = $customer2->fetchAll();
 //get booking date list from tbl_booking
 $sql2 = $db->prepare("SELECT  DISTINCT `book_date` FROM `tbl_booking`"); 
 $sql2->execute(); 
@@ -53,89 +56,65 @@ $slot = $sql3->fetchAll();
                         <td>01</td>
                         <td>Customer Details</td>
                         <td>Include Customer Details of selected Customer</td>
-                        <td><select name="userdetail" id="userdetail" style="width: 200px;">
+                        <form action="customer_detail_report.php" method="post">
+                        <td>
+                            <select name="user_id" id="userdetail" style="width: 200px;">
                                 <option selected="selected">Select Customer Name</option>
                                 <?php
                                     foreach($username as $username) { ?>
-                                    <option value="<?= $username['customer_name'] ?>"><?= $username['customer_name'] ?></option>
+                                    <option value="<?= $username['id'] ?>"><?= $username['customer_name'] ?></option>
                                 <?php } ?>
                             </select>
                         </td>
                         <td>
-                            <a class="pure-button button-small button-success" href="#">Generate</a>
-                            <a class="pure-button button-small button-warning" href="#">Print</a>
+                            <button type="submit" class="pure-button button-small button-success" href="#">Generate</a>
                         </td>
+                        </form>
                     </tr>
+                    
                     <tr>
                         <td>02</td>
                         <td>Daily Booking Details</td>
                         <td>Include Daily Booking Details of selected Date</td>
-                        <td><select name="bookdate" id="bookdate" style="width: 200px;">
-                                <option selected="selected">Select Booking Date</option>
-                                <?php
-                                    foreach($bookdate as $bookdate) { ?>
-                                    <option value="<?= $bookdate['book_date'] ?>"><?= $bookdate['book_date'] ?></option>
-                                <?php } ?>
-                            </select>
+                        <form action="booking_date_report.php" method="post">
+                            
+                        <td>
+                            <div>
+                            <label>From</label>
+                            <input type="date" name="f_date"/>
+                                    </div>
+                                    <div>
+                            <label>To</label>
+                            <input type="date" name="t_date"/>
+                                    </div>
                         </td>
                         <td>
-                            <a class="pure-button button-small button-success" href="#">Generate</a>
-                            <a class="pure-button button-small button-warning" href="#">Print</a>
+                        <button type="submit" class="pure-button button-small button-success" href="#">Generate</a>
                         </td>
+                        </form>
                     </tr>
                     <tr>
                         <td>03</td>
-                        <td>Monthly Booking Details</td>
-                        <td>Include Monthly Booking Details of selected Month</td>
-                        <td><select name="bookmonth" id="bookmonth" style="width: 200px;">
-                                <option selected="selected">Select Month</option>
+                        <td>User Payment Details</td>
+                        <td>Include User Payment Details of selected User</td>
+                        
+                        <td> 
+                        <form action="customer_payment_report.php" method="post">
+                            <select name="user_id" id="userdetail" style="width: 200px;">
+                                <option selected="selected">Select Customer Name</option>
                                 <?php
-                                    foreach($bookmonth as $bookmonth) { ?>
-                                    <option value="<?= $bookmonth['month'] ?>"><?= $bookmonth['month'] ?></option>
+                                    foreach($cus_names as $usernames) { ?>
+                                    <option value="<?= $usernames['id'] ?>"><?= $usernames['customer_name'] ?></option>
                                 <?php } ?>
                             </select>
                         </td>
                         <td>
-                            <a class="pure-button button-small button-success" href="#">Generate</a>
-                            <a class="pure-button button-small button-warning" href="#">Print</a>
+                        <button type="submit" class="pure-button button-small button-success" href="#">Generate</a>
                         </td>
+                       </form>
                     </tr>
                     <tr>
                         <td>04</td>
-                        <td>Annualy Booking Details</td>
-                        <td>Include Annualy Booking Details of selected Year</td>
-                        <td><select name="bookyear" id="bookyear" style="width: 200px;">
-                                <option selected="selected">Select Year</option>
-                                <?php
-                                    foreach($bookyear as $bookyear) { ?>
-                                    <option value="<?= $bookyear['year'] ?>"><?= $bookyear['year'] ?></option>
-                                <?php } ?>
-                            </select>
-                        </td>
-                        <td>
-                            <a class="pure-button button-small button-success" href="#">Generate</a>
-                            <a class="pure-button button-small button-warning" href="#">Print</a>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>05</td>
-                        <td>User Payment Details</td>
-                        <td>Include User Payment Details of selected User</td>
-                        <td><select name="userpayment" id="userpayment" style="width: 200px;">
-                                <option selected="selected">Select Customer Name</option>
-                                <?php
-                                   foreach($username as $username) { ?>
-                                    <option value="<?=$username['customer_name']?>"> <?=$username['customer_name']?></option>
-                                <?php } ?>
-                            </select>
-                        </td>
-                        <td>
-                            <a class="pure-button button-small button-success" href="#">Generate</a>
-                            <a class="pure-button button-small button-warning" href="#">Print</a>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>06</td>
                         <td>Slot Status Details</td>
                         <td>Include Parking Slot Status Details of selected Parkimg Slot</td>
                         <td><select name="slot" id="slot" style="width: 200px;">

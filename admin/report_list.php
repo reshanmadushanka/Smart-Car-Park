@@ -24,7 +24,7 @@ $month->execute();
 $bookmonth = $month->fetchAll();
 
 //get parking slot list from tbl_slot
-$sql3 = $db->prepare("SELECT `slot_name` FROM `tbl_slot`"); 
+$sql3 = $db->prepare("SELECT * FROM `tbl_slot`"); 
 $sql3->execute(); 
 $slot = $sql3->fetchAll();
 
@@ -117,18 +117,20 @@ $slot = $sql3->fetchAll();
                         <td>04</td>
                         <td>Slot Status Details</td>
                         <td>Include Parking Slot Status Details of selected Parkimg Slot</td>
-                        <td><select name="slot" id="slot" style="width: 200px;">
-                                <option selected="selected">Select Parking Slot</option>
+                        <td>
+                        <form action="slot_state_report.php" method="post">
+                            <select name="slot" id="slot" style="width: 200px;">
+                                <option selected="">Select Parking Slot</option>
                                 <?php
                                     foreach($slot as $slot) { ?>
-                                    <option value="<?= $slot['slot_name'] ?>"><?= $slot['slot_name'] ?></option>
+                                    <option value="<?= $slot['id'] ?>"><?= $slot['slot_name'] ?></option>
                                 <?php } ?>
                             </select>
                         </td>
                         <td>
-                            <a class="pure-button button-small button-success" href="#">Generate</a>
-                            <a class="pure-button button-small button-warning" href="#">Print</a>
+                        <button type="submit" class="pure-button button-small button-success" href="#">Generate</a>
                         </td>
+                                    </form>
                     </tr>
                 </tbody>
             </table>

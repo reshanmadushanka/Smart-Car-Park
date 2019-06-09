@@ -25,13 +25,6 @@ include './header.php';
 ?>
 <div class="filter-box col-lg-12 pull-left text-white">
     <br>
-    <h1>Payment Detail</h1><br><br>
-    <h3 class="text-white">Your Parking Slot will be reserved
-        on <font color="red"><?php print_r($_POST['date']); ?></font>
-        from <font color="red"><?php print_r($_POST['f_time']); ?></font>
-        to <font color="red"><?php print_r($_POST['t_time']); ?> </font>
-        for<font color="red"> <?php print_r($_POST['no_of_hours']); ?></font>
-        hour/hours only </h3> <br>
     <div class="container">
         <div class="row">
             <form method="post" id="pay_form"action="payment_result.php" class="col-lg-6 pull-left">

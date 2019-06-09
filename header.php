@@ -50,7 +50,7 @@
                     <li class="nav-item">
                         <a class="nav-link js-scroll-trigger" href="parking.php">Parking</a>
                     </li>
-                    <?php if ($_SESSION['login_user']) { ?>
+                    <?php if (isset($_SESSION['login_user'])) { ?>
                         <li class="nav-item">
                             <a class="nav-link js-scroll-trigger"><?php echo $_SESSION['login_user']; ?></a>
                         </li>
@@ -62,10 +62,11 @@
                     <li class="nav-item">
                         <a class="nav-link js-scroll-trigger" href="logout.php">Login</a>
                     </li>
-                    <?php } ?>
                     <li class="nav-item">
                         <a class="nav-link js-scroll-trigger" href="register.php">Register</a>
                     </li>
+                    <?php } ?>
+                    
                 </ul>
             </div>
         </div>

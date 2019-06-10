@@ -47,32 +47,7 @@ include './header.php';
                 <div class="col-lg-12 pull-left">
                     <label class="text-white" for="date">Expire Date</label>
                     <input name="exp_date" id="exp_date" class="form-control" type="text" required="true">
-                </div>
-                <div class="col-lg-12 pull-left" id="expiration-date" required="true">
-                    <label>Expiration Date</label>
-                    <select>
-                        <option value="01">January</option>
-                        <option value="02">February </option>
-                        <option value="03">March</option>
-                        <option value="04">April</option>
-                        <option value="05">May</option>
-                        <option value="06">June</option>
-                        <option value="07">July</option>
-                        <option value="08">August</option>
-                        <option value="09">September</option>
-                        <option value="10">October</option>
-                        <option value="11">November</option>
-                        <option value="12">December</option>
-                    </select>
-                    <select>
-                        <option value="16"> 2016</option>
-                        <option value="17"> 2017</option>
-                        <option value="18"> 2018</option>
-                        <option value="19"> 2019</option>
-                        <option value="20"> 2020</option>
-                        <option value="21"> 2021</option>
-                    </select>
-                </div>
+                </div>                
                 <div class="col-lg-12 pull-left">
                     <label class="text-white" for="date">Security Code</label>
                     <input name="Sec_code" class="form-control" type="text" required="true">

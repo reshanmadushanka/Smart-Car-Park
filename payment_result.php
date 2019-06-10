@@ -1,7 +1,5 @@
 <?php
 include './header.php';
-session_start();
-
 ?>
 <section>
 <div class="container">

@@ -74,8 +74,8 @@ $slot = $sql3->fetchAll();
                     
                     <tr>
                         <td>02</td>
-                        <td>Daily Booking Details</td>
-                        <td>Include Daily Booking Details of selected Date</td>
+                        <td>Booking Details</td>
+                        <td>Include Booking Details of selected Date Range</td>
                         <form action="booking_date_report.php" method="post">
                             
                         <td>
@@ -83,6 +83,7 @@ $slot = $sql3->fetchAll();
                             <label>From</label>
                             <input type="date" name="f_date"/>
                                     </div>
+                                    <br>
                                     <div>
                             <label>To</label>
                             <input type="date" name="t_date"/>

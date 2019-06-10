@@ -1,6 +1,5 @@
 <?php
 include "./database/config.php";
-session_start();
 if ($_SERVER["REQUEST_METHOD"] == "POST") { //check data passing method
     $date = $_POST['date'];
     $f_time = $_POST['time_from']; //real search time =from time
@@ -43,7 +42,7 @@ include './header.php';
         <div class="row">
             <div class="col-lg-12 text-center ">
                 <h2 class="text-white">Parking Slots</h2>
-<p class="text-white">Search result for <?=$date . ' in ' . $f_time . ' to ' . $time?> </p>
+<p class="text-white">Search result for <?=$date . ' in ' . $f_time . ' to ' . $t_time?> </p>
             </div>
         </div>
     </div>

@@ -59,7 +59,7 @@ $data = $sql->fetchAll(); //insert in to array
                             <input required id="name" name="date" type="date" placeholder=" Name" class="pure-input-1" >
 
                         </fieldset>
-                        <button type="submit">Search</button>
+                        <button class="pure-button button-small button-success" type="submit">Search</button><br><br>
                     </form>
                 </div>
             <table class="pure-table pure-table-bordered">

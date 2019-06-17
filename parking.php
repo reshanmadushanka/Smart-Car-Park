@@ -87,7 +87,6 @@ $(document).ready(function() {
     });
     //get data from database
     function update() {
-
         $.ajax({
             url: 'parking-data.php', //php
             data: "", //the data "caller=name1&&callee=name2"

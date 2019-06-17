@@ -81,12 +81,12 @@ $slot = $sql3->fetchAll();
                         <td>
                             <div>
                             <label>From</label>
-                            <input type="date" name="f_date"/>
+                            <input type="date" name="f_date" style="width: 200px;"/>
                                     </div>
                                     <br>
                                     <div>
                             <label>To</label>
-                            <input type="date" name="t_date"/>
+                            <input type="date" name="t_date" style="width: 200px;"/>
                                     </div>
                         </td>
                         <td>

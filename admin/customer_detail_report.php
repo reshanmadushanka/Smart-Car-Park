@@ -1,12 +1,20 @@
 <?php
 include 'header.php';
 $cutomer = $_POST['user_id'];
-$sql = $db->prepare("SELECT
-*
+$sql = $db->prepare("SELECT DISTINCT
+tbl_user.id,
+tbl_user.f_name,
+tbl_user.l_name,
+tbl_user.NIC,
+tbl_user.mobile,
+tbl_user.city,
+tbl_user.email,
+tbl_booking.vehical_no
 FROM
-`tbl_booking`
+`tbl_user`
+INNER JOIN tbl_booking ON tbl_user.id = tbl_booking.user_id
 WHERE
-`user_id` ='$cutomer'");
+tbl_user.id ='$cutomer'");
 
 $sql->execute();
 $data = $sql->fetchAll(); 
@@ -26,23 +34,27 @@ $data = $sql->fetchAll();
                 <thead>
                     <tr>
                         <th>#id</th>
-                        <th>Date</th>
-                        <th>From</th>
-                        <th>To</th>
-                        <th>Vehicle Number</th>
-                        <th>Hours</th>
+                        <th>First Name</th>
+                        <th>Last Name</th>
+                        <th>NIC No</th>
+                        <th>Mobile No</th>
+                        <th>City</th>
+                        <th>email</th>
+                        <th>Vehical No</th>
                     </tr>
                 </thead>
 
                 <tbody>
-                    <?php foreach ($data as $booking) {?>
+                    <?php foreach ($data as $user) {?>
                     <tr>
-                        <td><?=$booking['id'];?></td>
-                        <td><?=$booking['book_date'];?></td>
-                        <td><?=$booking['from'];?></td>
-                        <td><?=$booking['to'];?></td>
-                        <td><?=$booking['vehical_no'];?></td>
-                        <td><?=$booking['no_of_hours'];?></td>
+                        <td><?=$user['id'];?></td>
+                        <td><?=$user['f_name'];?></td>
+                        <td><?=$user['l_name'];?></td>
+                        <td><?=$user['NIC'];?></td>
+                        <td><?=$user['mobile'];?></td>
+                        <td><?=$user['city'];?></td>
+                        <td><?=$user['email'];?></td>
+                        <td><?=$user['vehical_no'];?></td>
                     </tr>
                     <?php }?>
                 </tbody>

@@ -8,10 +8,14 @@
     <link rel="stylesheet" href="../assets/admin/css/pure-min.css">
     <link rel="stylesheet" href="../assets/admin/css/pure-responsive-min.css">
     <link rel="stylesheet" href="../assets/admin/css/style.css">
+    <link rel="stylesheet" href="../assets/admin/css/custom.css">
 </head>
 <?php
-include('../database/config.php');
+include '../database/config.php';
 session_start();
+$sql = $db->prepare('select * from tbl_booking where is_show = 0');
+$sql->execute();
+$data = $sql->fetchAll(); 
 ?>
 <body>
     <div id="layout" class="pure-g">
@@ -22,10 +26,18 @@ session_start();
                     <?php echo $_SESSION['login_user']; ?>
                         <a href="../logout.php" class="pure-button button-xxsmall">LOGOUT &raquo;</a>
                     </p>
+
                     <ul class="pure-menu-list">
+                    <li class="pure-menu-link">
+                            <a href="#" class="notification">
+                                 <span>New Booking</span>
+                                 <span class="badge"><?php echo count($data); ?></span>
+                            </a>
+                        </li>
                         <li class="pure-menu-selected">
                             <a href="index.php" class="pure-menu-link">Dashboard</a>
                         </li>
+
                         <li>
                             <a href="user_list.php" class="pure-menu-link">User Profile Management</a>
                         </li>

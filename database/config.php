@@ -1,8 +1,8 @@
 <?php
 
 $dsn = 'mysql:hosy=localhost;dbname=car_park_db';
-$username = 'root';
-$password = '';
+$username = 'reshan';
+$password = 'reshan@123';
 
 try{
     // connect to mysql

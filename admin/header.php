@@ -15,7 +15,12 @@ include '../database/config.php';
 session_start();
 $sql = $db->prepare('select * from tbl_booking where is_show = 0');
 $sql->execute();
-$data = $sql->fetchAll(); 
+$data = $sql->fetchAll();
+if (!(isset($_SESSION['login_user']) && $_SESSION['login_user'] != '')) {
+
+    header("Location: ../login.php");
+
+}
 ?>
 <body>
     <div id="layout" class="pure-g">

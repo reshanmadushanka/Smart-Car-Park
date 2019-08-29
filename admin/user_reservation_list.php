@@ -52,11 +52,10 @@ $data = $sql->fetchAll(); //insert in to array
 }?>
 
 <div class="items">
-                    <h1 class="subhead">Slot</h1>
                     <form action="user_reservation_list.php" method="post" autocomplete="off" class="pure-form pure-form-stacked">
                         <fieldset>
                             <label for="firstname">Select Date</label>
-                            <input required id="name" name="date" type="date" placeholder=" Name" class="pure-input-1" >
+                            <input style="width: 200px;" required id="name" name="date" type="date" placeholder=" Name" class="pure-input-1" >
 
                         </fieldset>
                         <button class="pure-button button-small button-success" type="submit">Search</button><br><br>

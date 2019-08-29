@@ -20,9 +20,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         } else if ($data['role_id'] == "2") {
             header("location: dashboard.php");
         } else if ($data['role_id'] == "3") {
-            header("location: dashboard.php");
-        } else {
             header("location: admin/index.php");
+        } else {
+            header("location: dashboard.php");
         }
     } else {
         echo "Your Login Name or Password is invalid";

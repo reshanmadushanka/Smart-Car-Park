@@ -42,6 +42,8 @@ if (!(isset($_SESSION['login_user']) && $_SESSION['login_user'] != '')) {
                         <li class="pure-menu-selected">
                             <a href="index.php" class="pure-menu-link">Dashboard</a>
                         </li>
+<?php if ($_SESSION['user_type'] == 1) {?>      
+
 
                         <li>
                             <a href="user_list.php" class="pure-menu-link">User Profile Management</a>
@@ -58,6 +60,7 @@ if (!(isset($_SESSION['login_user']) && $_SESSION['login_user'] != '')) {
                         <li>
                             <a href="report_list.php" class="pure-menu-link">User Report Management</a>
                         </li>
+                        <?php }?>
                         <li>
                             <a href="user_reservation_list.php" class="pure-menu-link">User Reservation Management</a>
                         </li>

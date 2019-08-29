@@ -15,8 +15,12 @@ foreach ($data as $slots) {
 <div class="filter-box col-lg-12 pull-left text-white">
     <div class="container">
         <div class="row">
-            <form method="post" action="parking-search.php" class="col-lg-12">
-                <div class="col-lg-12">
+            <form method="post" action="parking-search.php" class="col-lg-8">
+                <div class="col-lg-8">
+                    <div>
+                        <label for="">Parking Location</label>
+                        <input name="location" id="location" class="form-control" type="text">
+                    </div>
                     <div>
                         <label for="date">Select Booking Date</label>
                         <input name="date" id="datepick" class="form-control" type="text">
@@ -30,7 +34,7 @@ foreach ($data as $slots) {
                         <input name="time_to" type='text' id="time_to" class="form-control" />
                     </div>
                 </div>
-                <div class="col-lg-12 form-group">
+                <div class="col-lg-8 form-group">
                     <button type="submit">Search</button>
                 </div>
         </div>

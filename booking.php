@@ -40,7 +40,7 @@ id = $user_id");
                         <label class="text-white" for="date">Vehicle No.</label>
                         <input name="vehical_no" class="form-control" type="text" required="true">
                     </div>
-                    <div>
+                    <div class="col-lg-12 pull-left">
                         <label class="text-white" for="date">Select Date</label>
                         <input name="date" value="<?= $_POST['date']; ?>" readonly class="form-control" type="text">
                     </div>

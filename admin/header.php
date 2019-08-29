@@ -29,7 +29,7 @@ $data = $sql->fetchAll();
 
                     <ul class="pure-menu-list">
                     <li class="pure-menu-link">
-                            <a href="#" class="notification">
+                            <a href="notification_list.php" class="notification">
                                  <span>New Booking</span>
                                  <span class="badge"><?php echo count($data); ?></span>
                             </a>

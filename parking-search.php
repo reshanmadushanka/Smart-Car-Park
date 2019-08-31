@@ -4,8 +4,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") { //check data passing method
     $date = $_POST['date'];
     $f_time = $_POST['time_from']; //real search time =from time
     $t_time = $_POST['time_to'];
-    $time = date('H:i', $timestamp);//after add one hour =to time
-//get booking data with slot detail------------
+    $location = $_POST['location'];
+    $time = date('H:i', $timestamp); //after add one hour =to time
+    //get booking data with slot detail------------
     $sql = $db->prepare("SELECT
 tbl_booking.*,
 tbl_slot.slot_name AS name,
@@ -14,8 +15,8 @@ FROM
 `tbl_booking`
 INNER JOIN tbl_slot ON tbl_slot.id = tbl_booking.slot_id
 WHERE
-tbl_booking.from >= '$f_time' AND tbl_booking.from <= '$t_time' AND tbl_booking.to >= '$f_time' AND tbl_booking.to <= '$t_time' AND tbl_booking.book_date = '$date'");
-//11.00=< x <12.00 
+tbl_booking.from >= '$f_time' AND tbl_booking.from <= '$t_time' AND tbl_booking.to >= '$f_time' AND tbl_booking.to <= '$t_time' AND tbl_booking.book_date = '$date' AND tbl_booking.location= $location ");
+//11.00=< x <12.00
     $sql->execute(); //execute query
     $data = $sql->fetchAll(); //insert in to array
     // get not booking slot data----------------
@@ -30,7 +31,7 @@ WHERE
     FROM
         tbl_booking
     WHERE
-    tbl_booking.from >= '$f_time' AND tbl_booking.from < '$t_time' AND tbl_booking.to >= '$f_time' AND tbl_booking.to < '$t_time' AND tbl_booking.book_date = '$date'
+    tbl_booking.from >= '$f_time' AND tbl_booking.from < '$t_time' AND tbl_booking.to >= '$f_time' AND tbl_booking.to < '$t_time' AND tbl_booking.book_date = '$date' AND tbl_booking.location= $location
 );");
     $slot->execute();
     $slotdata = $slot->fetchAll();
@@ -48,6 +49,7 @@ include './header.php';
     </div>
     <div class="container">
         <div class="row">
+            <!-- booking slots detail -->
         <?php
 foreach ($data as $slotall) {?>
 
@@ -59,18 +61,20 @@ foreach ($data as $slotall) {?>
                 </div>
             </div>
 
-        <?php }?>
-        <?php
+        <?php }
+
 foreach ($slotdata as $slotval) {?>
             <div class="col-lg-3 col-md-6 text-center">
                 <div id="park2" class="parking-box mt-5 mx-auto <?=$slotval['status'] == '0' ? 'parked' : '';?>">
                 <h3 class="text-white"><?=$slotval['slot_name']?> </h3>
-<!-- send data to booking --><?php if($slotval['status']!='0'){ ?>
+<!-- send data to booking -->
+<?php if ($slotval['status'] != '0') {?>
                 <form action="booking.php" method="post" >
                 <input type="hidden" name="slot_name" value="<?=$slotval['slot_name'];?>">
                 <input type="hidden" name="slot_id" value="<?=$slotval['id'];?>">
                 <input type="hidden" name="date" value="<?=$date;?>">
                 <input type="hidden" name="t_from" value="<?=$f_time;?>">
+                <input type="hidden" name="location" value="<?=$location;?>">
                 <input type="hidden" name="t_to" value="<?=$t_time;?>">
                  <input class="btn btn-light btn-xl js-scroll-trigger" type="submit" value="Click to Book">
                 </form>

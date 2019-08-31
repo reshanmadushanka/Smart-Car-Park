@@ -52,7 +52,7 @@
                     </li>
                     <?php if (isset($_SESSION['login_user'])) { ?>
                         <li class="nav-item">
-                            <a class="nav-link js-scroll-trigger"><?php echo $_SESSION['login_user']; ?></a>
+                            <a href="profile.php" class="nav-link js-scroll-trigger"><?php echo $_SESSION['login_user']; ?></a>
                         </li>
                         <li class="nav-item">
                             <a href="logout.php" class="nav-link js-scroll-trigger">Logout</a>

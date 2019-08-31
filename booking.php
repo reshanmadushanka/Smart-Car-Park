@@ -5,6 +5,7 @@ if (isset($_SESSION['user_id'])) {
     $user_id = $_SESSION['user_id'];
     $time1 = strtotime($_POST['t_from']);
     $time2 = strtotime($_POST['t_to']);
+    $location =  $_POST['location'];
     $difference = round(abs($time2 - $time1) / 3600, 2); //calculate hours
     $cal_cost = $difference * 100; //calculate cost
     // get customer detail
@@ -14,8 +15,16 @@ FROM
 `tbl_user`
 WHERE
 id = $user_id");
+$sql2 = $db->prepare("SELECT
+*
+FROM
+`tbl_location`
+WHERE
+id = $location");
     $sql->execute(); //execute query
+    $sql2->execute(); //execute query
     $datas = $sql->fetchAll(); //insert in to array
+    $locations = $sql2->fetch(PDO::FETCH_ASSOC);
     include 'header.php';
     ?>
     <br>
@@ -39,6 +48,12 @@ id = $user_id");
                     <div class="col-lg-12 pull-left">
                         <label class="text-white" for="date">Vehicle No.</label>
                         <input name="vehical_no" class="form-control" type="text" required="true">
+                    </div>
+                    
+                    <div class="col-lg-12 pull-left">
+                        <input type="hidden" name="location" value="<?= $_POST['location'] ?>" />
+                        <label class="text-white" for="date">Location </label>
+                        <input name="palce" value="<?= $locations['name'] ?>" class="form-control" type="text" required="true">
                     </div>
                     <div class="col-lg-12 pull-left">
                         <label class="text-white" for="date">Select Date</label>

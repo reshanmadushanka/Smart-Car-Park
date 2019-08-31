@@ -3,11 +3,12 @@ include './header.php';
 include "./database/config.php";
 
 $sql = $db->prepare("SELECT * FROM tbl_slot "); //get user details
+$sql2 = $db->prepare("SELECT * FROM tbl_location "); //get locations
 $sql->execute(); //execute query
+$sql2->execute(); //execute query
 $data = $sql->fetchAll(); //insert in to array
+$locations = $sql2->fetchAll(); //insert in to array
 
-foreach ($data as $slots) {
-}
 ?>
 <br>
 <br>
@@ -19,19 +20,23 @@ foreach ($data as $slots) {
                 <div class="col-lg-8">
                     <div>
                         <label for="">Parking Location</label>
-                        <input name="location" id="location" class="form-control" type="text">
+                        <select class="form-control" name="location" id="location" id="">
+                            <?php foreach ($locations as $location) {?>
+                                <option selected value="<?=$location['id']?>"><?=$location['name']?></option>
+                            <?php }?>
+                        </select>
                     </div>
                     <div>
                         <label for="date">Select Booking Date</label>
-                        <input name="date" id="datepick" class="form-control" type="text">
+                        <input autocomplete="off" name="date" id="datepick" class="form-control" type="text">
                     </div>
                     <div>
                         <label for="date"> Select From Time</label>
-                        <input name="time_from" type='text' id="timpick" class="form-control" />
+                        <input autocomplete="off" name="time_from" type='text' id="timpick" class="form-control" />
                     </div>
                     <div>
                         <label for="date"> Select To Time</label>
-                        <input name="time_to" type='text' id="time_to" class="form-control" />
+                        <input autocomplete="off" name="time_to" type='text' id="time_to" class="form-control" />
                     </div>
                 </div>
                 <div class="col-lg-8 form-group">

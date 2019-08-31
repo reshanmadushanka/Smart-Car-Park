@@ -9,16 +9,12 @@ $slot_id = $_POST['slot_id'];
 $vehical_no = $_POST['vehical_no'];
 $no_of_hours = $_POST['no_of_hours'];
 $price = $_POST['price'];
+$location = $_POST['location'];
 
 //insert into tbl_booking
-$sql1 = $db->prepare("INSERT INTO `tbl_booking`( `user_id`, `book_date`, `from`, `to`, `slot_id`, `vehical_no`, `no_of_hours`) VALUES ( '$user_id', '$book_date', '$from', '$to', '$slot_id', '$vehical_no', '$no_of_hours')");
+$sql1 = $db->prepare("INSERT INTO `tbl_booking`( `user_id`, `book_date`, `from`, `to`, `slot_id`, `vehical_no`, `location`, `no_of_hours`) VALUES ( '$user_id', '$book_date', '$from', '$to', '$slot_id', '$vehical_no', '$location', '$no_of_hours')");
 $sql1->execute(); //execute query
 $booking_id = $db->lastInsertId();
-
-//insert data into tbl_payment when click submit button
-
-$sql2 = $db->prepare("INSERT INTO `tbl_payment`(`user_id`, `booking_id`, `amount`, `status`) VALUES ('$user_id', '$booking_id', '$price', 'online')");
-$sql2->execute(); //execute query
 
 include './header.php';
 
@@ -28,6 +24,7 @@ include './header.php';
     <div class="container">
         <div class="row">
             <form method="post" id="pay_form"action="payment_result.php" class="col-lg-6 pull-left">
+                <input value="<?= $booking_id ?>" type="hidden" name="booking_id"/>
                 <div class="col-lg-12 pull-left">
                     <label class="text-white" for="date">Customer Name</label>
                     <input name="user_name" value="<?= $_SESSION['login_user']; ?>" class="form-control" type="text" readonly>

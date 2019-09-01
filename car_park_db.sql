@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.8.5
+-- version 4.7.4
 -- https://www.phpmyadmin.net/
 --
--- Host: localhost
--- Generation Time: Aug 31, 2019 at 04:42 PM
--- Server version: 5.7.24
--- PHP Version: 7.2.11
+-- Host: 127.0.0.1
+-- Generation Time: Sep 01, 2019 at 05:08 AM
+-- Server version: 10.1.30-MariaDB
+-- PHP Version: 7.2.1
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -59,7 +59,29 @@ INSERT INTO `tbl_booking` (`id`, `user_id`, `book_date`, `from`, `to`, `slot_id`
 (40, 5, '2019-08-27', '13:00:00', '19:00:00', 3, 'YTS-8235', 1, 6, 1, '2019-04-07 11:03:33'),
 (41, 9, '2019-08-28', '23:00:00', '21:00:00', 1, '764f', 1, 2, 1, '2019-08-28 13:36:42'),
 (42, 7, '2019-08-30', '18:00:00', '19:00:00', 1, 'BAS-4157', 1, 1, 1, '2019-08-31 15:54:20'),
-(43, 7, '2019-08-29', '19:00:00', '20:00:00', 3, 'BAS-4157', 1, 1, 1, '2019-08-31 16:05:43');
+(43, 7, '2019-08-29', '19:00:00', '20:00:00', 3, 'BAS-4157', 1, 1, 1, '2019-08-31 16:05:43'),
+(44, 4, '2019-09-01', '07:00:00', '08:00:00', 1, 'BTC-6478', 1, 1, 0, '2019-08-31 18:38:55');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `tbl_contact`
+--
+
+CREATE TABLE `tbl_contact` (
+  `id` int(11) NOT NULL,
+  `name` varchar(25) NOT NULL,
+  `email` varchar(50) NOT NULL,
+  `subject` text NOT NULL,
+  `message` text NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `tbl_contact`
+--
+
+INSERT INTO `tbl_contact` (`id`, `name`, `email`, `subject`, `message`) VALUES
+(1, 'Omega', 'omega@gmail.com', 'New Booking', 'Kindly Check my booking status');
 
 -- --------------------------------------------------------
 
@@ -107,7 +129,8 @@ INSERT INTO `tbl_payment` (`id`, `user_id`, `booking_id`, `amount`, `status`) VA
 (5, 5, 39, 700, 'online'),
 (6, 5, 40, 600, 'online'),
 (7, 9, 41, 200, 'online'),
-(8, 7, 43, 100, 'online');
+(8, 7, 43, 100, 'online'),
+(9, 4, 44, 100, 'online');
 
 -- --------------------------------------------------------
 
@@ -173,9 +196,9 @@ CREATE TABLE `tbl_slot` (
 --
 
 INSERT INTO `tbl_slot` (`id`, `slot_name`, `status`, `timestamp`) VALUES
-(1, 'slot1', 1, '2019-03-09 18:16:57'),
-(2, 'slot2', 1, '2019-03-09 18:16:57'),
-(3, 'slot3', 1, '2019-04-01 16:20:41'),
+(1, 'slot1', 0, '2019-03-09 18:16:57'),
+(2, 'slot2', 0, '2019-03-09 18:16:57'),
+(3, 'slot3', 0, '2019-04-01 16:20:41'),
 (4, 'slot4', 0, '2019-04-01 16:20:41');
 
 -- --------------------------------------------------------
@@ -202,9 +225,9 @@ CREATE TABLE `tbl_user` (
 --
 
 INSERT INTO `tbl_user` (`id`, `f_name`, `l_name`, `NIC`, `mobile`, `city`, `email`, `password`, `role_id`, `timestamp`) VALUES
-(2, 'Admin', 'user', '912455663v', '0714852233', 'galle', 'admin@gmail.com', '$2y$10$5t0i53k7uTQSIG5QDE9/LedOK.IZfpEBYivGJlsrtrV1sXUb7IWEG', 1, '2019-03-20 07:15:06'),
+(2, 'Admin', 'user', '912455663v', '0714852233', 'galle', 'admin@gmail.com', '$2y$10$Jrf/5ed7hHq.EU2p.XRykOzeTbNQdGKwNX/WltDOOePjbKwWpnK2O', 1, '2019-03-20 07:15:06'),
 (3, 'Amal', 'Viraj', '945634564V', '0713422134', 'Colombo', 'amal@gmail.com', '$2y$10$ywyVwa0RqbdZGDseSZhkc.fiblcHiARqh0Eogu6yEjwuQJvM9FoJS', 2, '2019-04-06 09:50:55'),
-(4, 'Harsha', 'Kumara', '945673421V', '0786533149', 'kandy', 'harsha@gmail.com', '$2y$10$IsFEl9ey/NzTkxA.Sm7n3uDDHjNVpm28kehxtIrGywLitVO.QQMMm', 2, '2019-04-07 10:45:14'),
+(4, 'Harsha', 'Kumara', '945673421V', '0786533149', 'kandy', 'harsha@gmail.com', '$2y$10$IsFEl9ey/NzTkxA.Sm7n3uDDHjNVpm28kehxtIrGywLitVO.QQMMm', 1, '2019-04-07 10:45:14'),
 (5, 'Chamari', 'Herath', '954397890V', '0715564388', 'Gampola', 'chamari@yahoo.com', '$2y$10$iYYT76PTrFma8egpcS1o0udNOZVGF0K1jownwJYlhxtlp5LbIGglO', 2, '2019-04-07 10:46:31'),
 (6, 'Tharuka', 'Rathnayaka', '936753781V', '0775561341', 'Kegalle', 'tharuka@gmail.com', '$2y$10$71MOjQ3LvwRyXCqSHajo5O68qgA05VbNcH7KwsRqRy23DzpimaoVq', 2, '2019-04-07 10:47:32'),
 (7, 'Saman', ' Kumara', '924567390V', '0712239871', 'Mathara', 'saman@yahoo.com', '$2y$10$pi7T8rzriCdEp0iYBw1i5O4gCrPpd0bCuHLwDNeMGyZ9XSFcI2UxW', 2, '2019-04-07 10:49:21'),
@@ -220,6 +243,12 @@ INSERT INTO `tbl_user` (`id`, `f_name`, `l_name`, `NIC`, `mobile`, `city`, `emai
 -- Indexes for table `tbl_booking`
 --
 ALTER TABLE `tbl_booking`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `tbl_contact`
+--
+ALTER TABLE `tbl_contact`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -270,7 +299,13 @@ ALTER TABLE `tbl_user`
 -- AUTO_INCREMENT for table `tbl_booking`
 --
 ALTER TABLE `tbl_booking`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=44;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=45;
+
+--
+-- AUTO_INCREMENT for table `tbl_contact`
+--
+ALTER TABLE `tbl_contact`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `tbl_location`
@@ -282,7 +317,7 @@ ALTER TABLE `tbl_location`
 -- AUTO_INCREMENT for table `tbl_payment`
 --
 ALTER TABLE `tbl_payment`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT for table `tbl_role`

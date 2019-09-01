@@ -24,13 +24,7 @@ include './header.php';
             </div>
             <?php } ?>
             <!-- Slide Two - Set the background image for this slide in the line below -->
-            <div class="carousel-item" >
-                <img class="d-block w-100" src="./assets/img/portfolio/fullsize/camconsults.jpg" alt="First slide">
-                <div class="carousel-caption d-none d-md-block">
-                    <h3>Second Slide</h3>
-                    <p>This is a description for the second slide.</p>
-                </div>
-            </div>           
+                    
         </div>
         <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
             <span class="carousel-control-prev-icon" aria-hidden="true"></span>

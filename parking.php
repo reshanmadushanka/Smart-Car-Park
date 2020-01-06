@@ -86,8 +86,10 @@ $locations = $sql2->fetchAll(); //insert in to array
 <?php include './footer.php';?>
 <script>
 $(document).ready(function() {
+    var dateToday = new Date();
     jQuery('#datepick').datetimepicker({
         timepicker: false,
+        minDate: dateToday,
         format: 'Y/m/d',
     });
     jQuery('#timpick,#time_to').datetimepicker({

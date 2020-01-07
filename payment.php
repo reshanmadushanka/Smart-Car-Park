@@ -39,7 +39,7 @@ include './header.php';
                 </div>
                 <div class="col-lg-12 pull-left">
                     <label class="text-white" for="date">Credit/ Debit Card No</label>
-                    <input name="card_no" class="form-control" type="number" required="true">
+                    <input name="card_no" class="form-control" type="text" pattern="[1-9]{1}[0-9]{9}" required="true">
                 </div>
                 <div class="col-lg-12 pull-left">
                     <label class="text-white" for="date">Expire Date</label>
@@ -47,7 +47,7 @@ include './header.php';
                 </div>                
                 <div class="col-lg-12 pull-left">
                     <label class="text-white" for="date">Security Code</label>
-                    <input name="Sec_code" class="form-control" type="text" required="true">
+                    <input name="Sec_code" class="form-control" maxlength="3" pattern="\d{3}"type="text" required="true">
                 </div>
                 <div class="col-lg-12 pull-left">
                     <label class="text-white" for="date">Amount</label>
@@ -63,8 +63,10 @@ include './header.php';
 <?php include './footer.php'; ?>
 <script>
     $(document).ready(function() {
+        var dateToday = new Date();
         jQuery('#exp_date').datetimepicker({
             timepicker: false,
+            minDate: dateToday,
             format: 'Y/m',
         });
     });

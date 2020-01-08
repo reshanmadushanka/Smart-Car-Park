@@ -36,7 +36,7 @@ $sql->execute(); //execute query
 $data = $sql->fetchAll(); //insert in to array 
 }
 
-?>F
+?>
 
 
 <div class="content pure-u-1 pure-u-md-21-24">

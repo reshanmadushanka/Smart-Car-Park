@@ -32,7 +32,6 @@ if(isset($_POST['slot'])){
     
 ?>
 
-
 <div class="content pure-u-1 pure-u-md-21-24">
     <div class="header-small">
         <div class="items">

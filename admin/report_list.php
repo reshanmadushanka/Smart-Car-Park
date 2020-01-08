@@ -133,6 +133,28 @@ $slot = $sql3->fetchAll();
                         </td>
                                     </form>
                     </tr>
+                    <tr>
+                        <td>05</td>
+                        <td>Income Details</td>
+                        <td>Include Income Details of selected Date Range</td>
+                        <form action="booking_date_report.php" method="post">
+                            
+                        <td>
+                            <div>
+                            <label>From</label>
+                            <input type="date" name="f_date" style="width: 200px;"/>
+                                    </div>
+                                    <br>
+                                    <div>
+                            <label>To</label>
+                            <input type="date" name="t_date" style="width: 200px;"/>
+                                    </div>
+                        </td>
+                        <td>
+                        <button type="submit" class="pure-button button-small button-success" href="#">Generate</a>
+                        </td>
+                        </form>
+                    </tr>
                 </tbody>
             </table>
         </div>

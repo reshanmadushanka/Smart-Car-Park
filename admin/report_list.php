@@ -1,31 +1,31 @@
 <?php include '../admin/header.php';?>
 <?php
 //get customer name list from tbl_user
-$sql1 = $db->prepare("SELECT CONCAT(f_name, ' ' ,l_name) AS customer_name,id FROM tbl_user"); 
-$sql1->execute(); 
+$sql1 = $db->prepare("SELECT CONCAT(f_name, ' ' ,l_name) AS customer_name,id FROM tbl_user");
+$sql1->execute();
 $username = $sql1->fetchAll();
 // customer list 2
-$customer2 = $db->prepare("SELECT CONCAT(f_name, ' ' ,l_name) AS customer_name,id FROM tbl_user"); 
-$customer2->execute(); 
+$customer2 = $db->prepare("SELECT CONCAT(f_name, ' ' ,l_name) AS customer_name,id FROM tbl_user");
+$customer2->execute();
 $cus_names = $customer2->fetchAll();
 //get booking date list from tbl_booking
-$sql2 = $db->prepare("SELECT  DISTINCT `book_date` FROM `tbl_booking`"); 
-$sql2->execute(); 
+$sql2 = $db->prepare("SELECT  DISTINCT `book_date` FROM `tbl_booking`");
+$sql2->execute();
 $bookdate = $sql2->fetchAll();
 
 //get booking year list from tbl_booking
-$year = $db->prepare("SELECT DISTINCT EXTRACT(YEAR FROM tbl_booking.book_date) AS year FROM tbl_booking"); 
-$year->execute(); 
+$year = $db->prepare("SELECT DISTINCT EXTRACT(YEAR FROM tbl_booking.book_date) AS year FROM tbl_booking");
+$year->execute();
 $bookyear = $year->fetchAll();
 
 //get booking Month list from tbl_booking
-$month = $db->prepare("SELECT DISTINCT MONTHNAME (tbl_booking.book_date) AS month FROM tbl_booking"); 
-$month->execute(); 
+$month = $db->prepare("SELECT DISTINCT MONTHNAME (tbl_booking.book_date) AS month FROM tbl_booking");
+$month->execute();
 $bookmonth = $month->fetchAll();
 
 //get parking slot list from tbl_slot
-$sql3 = $db->prepare("SELECT * FROM `tbl_slot`"); 
-$sql3->execute(); 
+$sql3 = $db->prepare("SELECT * FROM `tbl_slot`");
+$sql3->execute();
 $slot = $sql3->fetchAll();
 
 ?>
@@ -61,9 +61,9 @@ $slot = $sql3->fetchAll();
                             <select name="user_id" id="userdetail" style="width: 200px;">
                                 <option selected="selected">Select Customer Name</option>
                                 <?php
-                                    foreach($username as $username) { ?>
-                                    <option value="<?= $username['id'] ?>"><?= $username['customer_name'] ?></option>
-                                <?php } ?>
+foreach ($username as $username) {?>
+                                    <option value="<?=$username['id']?>"><?=$username['customer_name']?></option>
+                                <?php }?>
                             </select>
                         </td>
                         <td>
@@ -71,13 +71,13 @@ $slot = $sql3->fetchAll();
                         </td>
                         </form>
                     </tr>
-                    
+
                     <tr>
                         <td>02</td>
                         <td>Booking Details</td>
                         <td>Include Booking Details of selected Date Range</td>
                         <form action="booking_date_report.php" method="post">
-                            
+
                         <td>
                             <div>
                             <label>From</label>
@@ -98,15 +98,15 @@ $slot = $sql3->fetchAll();
                         <td>03</td>
                         <td>User Payment Details</td>
                         <td>Include User Payment Details of selected User</td>
-                        
-                        <td> 
+
+                        <td>
                         <form action="customer_payment_report.php" method="post">
                             <select name="user_id" id="userdetail" style="width: 200px;">
                                 <option selected="selected">Select Customer Name</option>
                                 <?php
-                                    foreach($cus_names as $usernames) { ?>
-                                    <option value="<?= $usernames['id'] ?>"><?= $usernames['customer_name'] ?></option>
-                                <?php } ?>
+foreach ($cus_names as $usernames) {?>
+                                    <option value="<?=$usernames['id']?>"><?=$usernames['customer_name']?></option>
+                                <?php }?>
                             </select>
                         </td>
                         <td>
@@ -123,9 +123,9 @@ $slot = $sql3->fetchAll();
                             <select name="slot" id="slot" style="width: 200px;">
                                 <option selected="">Select Parking Slot</option>
                                 <?php
-                                    foreach($slot as $slot) { ?>
-                                    <option value="<?= $slot['id'] ?>"><?= $slot['slot_name'] ?></option>
-                                <?php } ?>
+foreach ($slot as $slot) {?>
+                                    <option value="<?=$slot['id']?>"><?=$slot['slot_name']?></option>
+                                <?php }?>
                             </select>
                         </td>
                         <td>
@@ -137,8 +137,8 @@ $slot = $sql3->fetchAll();
                         <td>05</td>
                         <td>Income Details</td>
                         <td>Include Income Details of selected Date Range</td>
-                        <form action="booking_date_report.php" method="post">
-                            
+                        <form action="income_report.php" method="post">
+
                         <td>
                             <div>
                             <label>From</label>

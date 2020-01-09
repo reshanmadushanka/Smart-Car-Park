@@ -20,12 +20,13 @@ tbl_booking.book_date BETWEEN '$from' AND '$to'");
 
 $sql->execute();
 $data = $sql->fetchAll();
-$total = 0;
+$totalamount = 0;
+$totalhours = 0;
 ?>
 <div class="content pure-u-1 pure-u-md-21-24">
     <div class="header-small" >
         <div class="items" id="print">
-            <h1 class="subhead">Customer Detail Report</h1>
+            <h1 class="subhead">Income Details Report</h1>
             <!-- success msg show -->
             <?php if (isset($_SESSION['success'])) {?>
             <aside class="pure-message message-success">
@@ -38,11 +39,10 @@ $total = 0;
                     <tr>
                         <th>Customer</th>
                         <th>Payment (Rs)</th>
-                        <th>Date</th>
-                        <th>From</th>
-                        <th>To</th>
+                        <th>Date</th>                        
                         <th>Vehicle Number</th>
                         <th>Hours</th>
+                        <th>Payment Type</th>
                     </tr>
                 </thead>
 
@@ -51,23 +51,24 @@ $total = 0;
                     <tr>
                         <td><?=$booking['f_name'];?></td>
                         <td><?=$booking['amount'];?></td>
-                        <td><?=$booking['book_date'];?></td>
-                        <td><?=$booking['from'];?></td>
-                        <td><?=$booking['to'];?></td>
+                        <td><?=$booking['book_date'];?></td>                        
                         <td><?=$booking['vehical_no'];?></td>
                         <td><?=$booking['no_of_hours'];?></td>
+                        <td><?=$booking['status'];?></td>
                     </tr>
-                    <?php $total += $booking['amount'];?>
+                    <?php
+                    $totalamount += $booking['amount'];
+                    $totalhours += $booking['no_of_hours'];
+                    ?>
 
                     <?php }?>
                     <tr>
-                        <td>Total</td>
-                        <td><?php echo $total; ?></td>
+                        <td><b>Total</b></td>
+                        <td><b><?php echo $totalamount; ?></b></td>
+                        <td><b><?php echo count($data); ?> Days</b></td>
                         <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
+                        <td><b><?php echo $totalhours; ?></b></td>  
+                        <td></td>                       
                     </tr>
                 </tbody>
             </table>

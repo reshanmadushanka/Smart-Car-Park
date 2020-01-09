@@ -14,7 +14,7 @@ $data = $sql->fetchAll();
 <div class="content pure-u-1 pure-u-md-21-24">
     <div class="header-small" >
         <div class="items" id="print">
-            <h1 class="subhead">Customer Detail Report (<?php echo $bookdate ; ?>)</h1>
+            <h1 class="subhead">Booking Details Report</h1>
             <!-- success msg show -->
             <?php if (isset($_SESSION['success'])) {?>
             <aside class="pure-message message-success">

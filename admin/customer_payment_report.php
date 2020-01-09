@@ -18,12 +18,13 @@ tbl_payment.user_id = '$cutomer'");
 
 $sql->execute();
 $data = $sql->fetchAll(); 
-$total = 0;
+$totalamount = 0;
+$totalhours = 0;
 ?>
 <div class="content pure-u-1 pure-u-md-21-24">
     <div class="header-small" >
         <div class="items" id="print">
-            <h1 class="subhead">Customer Detail Report</h1>
+            <h1 class="subhead">Customer Payment Detail Report</h1>
             <!-- success msg show -->
             <?php if (isset($_SESSION['success'])) {?>
             <aside class="pure-message message-success">
@@ -55,17 +56,20 @@ $total = 0;
                         <td><?=$booking['vehical_no'];?></td>
                         <td><?=$booking['no_of_hours'];?></td>
                     </tr>
-                    <?php $total += $booking['amount']; ?>
+                    <?php 
+                    $totalamount += $booking['amount'];
+                    $totalhours += $booking['no_of_hours'];
+                    ?>
                    
                     <?php }?>
                     <tr>
-                        <td>Total</td>
-                        <td><?php echo $total;?></td>
+                        <td><b>Total<b></td>
+                        <td><b><?php echo $totalamount;?></b></td>
+                        <td><b><?php echo count($data); ?> Days</b></td>
                         <td></td>
                         <td></td>
                         <td></td>
-                        <td></td>
-                        <td></td>
+                        <td><b><?php echo $totalhours;?></b></td>
                     </tr>
                 </tbody>
             </table>

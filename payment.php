@@ -31,22 +31,23 @@ include './header.php';
                 </div>
                 <div class="col-lg-12 pull-left">
                     <label class="text-white" for="date">Vehical No.</label>
-                    <input name="vehical_no" value="<?= $_POST['vehical_no'] ?>" class="form-control" type="text" readonly>
+                    <input name="vehical_no" value="<?= $_POST['vehical_no'] ?>" required="true" pattern="[A-Z]{3}[ -]{0,1}[0-9]{1,4}" class="form-control" type="text" readonly>
+                    <!--//ABC - 1234 Vehical No. Formate -->
                 </div>
                 <div class="col-lg-12 pull-left">
                     <label class="text-white" for="date">Parking Slot No.</label>
                     <input name="slot_name" value="<?= $_POST['slot_name'] ?>" class="form-control" type="text" readonly>
                 </div>
                 <div class="col-lg-12 pull-left">
-                    <label class="text-white" for="date">Credit/ Debit Card No</label>
-                    <input name="card_no" class="form-control" type="text" pattern="[1-9]{1}[0-9]{9}" required="true">
+                    <label class="text-white" for="date">Credit/ Debit Card No. <br><br><i> Eg: 1234567890</i></label>
+                    <input name="card_no" class="form-control" type="text" pattern="[1-9]{1}[0-9]{9}" required="true">                   
                 </div>
                 <div class="col-lg-12 pull-left">
-                    <label class="text-white" for="date">Expire Date</label>
+                    <label class="text-white" for="date">Card Expire Date</label>
                     <input name="exp_date" id="exp_date" class="form-control" type="text" required="true">
                 </div>                
                 <div class="col-lg-12 pull-left">
-                    <label class="text-white" for="date">Security Code</label>
+                    <label class="text-white" for="date">Security Code <br><br><i> Eg: 123</i></label>
                     <input name="Sec_code" class="form-control" maxlength="3" pattern="\d{3}"type="text" required="true">
                 </div>
                 <div class="col-lg-12 pull-left">

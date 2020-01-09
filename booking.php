@@ -46,7 +46,7 @@ id = $location");
                         <input name="user_name" value="<?= $_SESSION['login_user']; ?>" readonly class="form-control" type="text">
                     </div>
                     <div class="col-lg-12 pull-left">
-                        <label class="text-white" for="date">Vehicle No.</label>
+                        <label class="text-white" for="date">Vehicle No.<br><br><i> Eg: XXX - 1234</i></label>
                         <input name="vehical_no" class="form-control" type="text" required="true">
                     </div>
                     

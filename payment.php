@@ -53,6 +53,9 @@ include './header.php';
                     <label class="text-white" for="date">Amount</label>
                     <input name="price" value="<?= $_POST['price'] ?>" class="form-control" type="text" readonly>
                 </div>
+                <div>
+                    <input type="hidden" name="date" value="<?= $_POST['date']; ?>">
+                </div>
                 <div class="col-lg-12 pull-left">
                     <button name="submit" type="submit">Pay Now</button>
                 </div>

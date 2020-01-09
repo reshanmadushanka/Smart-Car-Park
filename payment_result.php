@@ -4,8 +4,9 @@ session_start();
 $user_id = $_SESSION['user_id'];
 $booking_id = $_POST['booking_id'];
 $price = $_POST['price'];
+$book_date = $_POST['date'];
 // insert payment data
-$sql2 = $db->prepare("INSERT INTO `tbl_payment`(`user_id`, `booking_id`, `amount`, `status`) VALUES ('$user_id', '$booking_id', '$price', 'online')");
+$sql2 = $db->prepare("INSERT INTO `tbl_payment`(`user_id`, `booking_id`, `book_date`, `amount`, `status`) VALUES ('$user_id', '$booking_id', '$book_date', '$price', 'online')");
 $sql2->execute(); //execute query
 include './header.php';
 ?>

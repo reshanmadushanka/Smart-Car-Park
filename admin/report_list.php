@@ -57,18 +57,19 @@ $slot = $sql3->fetchAll();
                         <td>Customer Details</td>
                         <td>Include Customer Details of selected Customer</td>
                         <form action="customer_detail_report.php" method="post">
-                        <td>
-                            <select name="user_id" id="userdetail" style="width: 200px;">
-                                <option selected="selected">Select Customer Name</option>
-                                <?php
+                            <td>
+                                <select name="user_id" id="userdetail" style="width: 200px;">
+                                    <option selected="selected">Select Customer Name</option>
+                                    <?php
 foreach ($username as $username) {?>
                                     <option value="<?=$username['id']?>"><?=$username['customer_name']?></option>
-                                <?php }?>
-                            </select>
-                        </td>
-                        <td>
-                            <button type="submit" class="pure-button button-small button-success" href="#">Generate</a>
-                        </td>
+                                    <?php }?>
+                                </select>
+                            </td>
+                            <td>
+                                <button type="submit" class="pure-button button-small button-success"
+                                    href="#">Generate</a>
+                            </td>
                         </form>
                     </tr>
 
@@ -78,20 +79,21 @@ foreach ($username as $username) {?>
                         <td>Include Booking Details of selected Date Range</td>
                         <form action="booking_date_report.php" method="post">
 
-                        <td>
-                            <div>
-                            <label>From</label>
-                            <input type="date" name="f_date" style="width: 200px;"/>
-                                    </div>
-                                    <br>
-                                    <div>
-                            <label>To</label>
-                            <input type="date" name="t_date" style="width: 200px;"/>
-                                    </div>
-                        </td>
-                        <td>
-                        <button type="submit" class="pure-button button-small button-success" href="#">Generate</a>
-                        </td>
+                            <td>
+                                <div>
+                                    <label>From</label>
+                                    <input type="date" name="f_date" style="width: 200px;" />
+                                </div>
+                                <br>
+                                <div>
+                                    <label>To</label>
+                                    <input type="date" name="t_date" style="width: 200px;" />
+                                </div>
+                            </td>
+                            <td>
+                                <button type="submit" class="pure-button button-small button-success"
+                                    href="#">Generate</a>
+                            </td>
                         </form>
                     </tr>
                     <tr>
@@ -100,38 +102,38 @@ foreach ($username as $username) {?>
                         <td>Include User Payment Details of selected User</td>
 
                         <td>
-                        <form action="customer_payment_report.php" method="post">
-                            <select name="user_id" id="userdetail" style="width: 200px;">
-                                <option selected="selected">Select Customer Name</option>
-                                <?php
+                            <form action="customer_payment_report.php" method="post">
+                                <select name="user_id" id="userdetail" style="width: 200px;">
+                                    <option selected="selected">Select Customer Name</option>
+                                    <?php
 foreach ($cus_names as $usernames) {?>
                                     <option value="<?=$usernames['id']?>"><?=$usernames['customer_name']?></option>
-                                <?php }?>
-                            </select>
+                                    <?php }?>
+                                </select>
                         </td>
                         <td>
-                        <button type="submit" class="pure-button button-small button-success" href="#">Generate</a>
+                            <button type="submit" class="pure-button button-small button-success" href="#">Generate</a>
                         </td>
-                       </form>
+                        </form>
                     </tr>
                     <tr>
                         <td>04</td>
                         <td>Slot Status Details</td>
                         <td>Include Parking Slot Status Details of selected Parkimg Slot</td>
                         <td>
-                        <form action="slot_state_report.php" method="post">
-                            <select name="slot" id="slot" style="width: 200px;">
-                                <option selected="">Select Parking Slot</option>
-                                <?php
+                            <form action="slot_state_report.php" method="post">
+                                <select name="slot" id="slot" style="width: 200px;">
+                                    <option selected="">Select Parking Slot</option>
+                                    <?php
 foreach ($slot as $slot) {?>
                                     <option value="<?=$slot['id']?>"><?=$slot['slot_name']?></option>
-                                <?php }?>
-                            </select>
+                                    <?php }?>
+                                </select>
                         </td>
                         <td>
-                        <button type="submit" class="pure-button button-small button-success" href="#">Generate</a>
+                            <button type="submit" class="pure-button button-small button-success" href="#">Generate</a>
                         </td>
-                                    </form>
+                        </form>
                     </tr>
                     <tr>
                         <td>05</td>
@@ -139,20 +141,21 @@ foreach ($slot as $slot) {?>
                         <td>Include Income Details of selected Date Range</td>
                         <form action="income_report.php" method="post">
 
-                        <td>
-                            <div>
-                            <label>From</label>
-                            <input type="date" name="f_date" style="width: 200px;"/>
-                                    </div>
-                                    <br>
-                                    <div>
-                            <label>To</label>
-                            <input type="date" name="t_date" style="width: 200px;"/>
-                                    </div>
-                        </td>
-                        <td>
-                        <button type="submit" class="pure-button button-small button-success" href="#">Generate</a>
-                        </td>
+                            <td>
+                                <div>
+                                    <label>From</label>
+                                    <input type="date" name="f_date" style="width: 200px;" />
+                                </div>
+                                <br>
+                                <div>
+                                    <label>To</label>
+                                    <input type="date" name="t_date" style="width: 200px;" />
+                                </div>
+                            </td>
+                            <td>
+                                <button type="submit" class="pure-button button-small button-success"
+                                    href="#">Generate</a>
+                            </td>
                         </form>
                     </tr>
                 </tbody>

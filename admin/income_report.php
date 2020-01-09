@@ -23,7 +23,7 @@ $totalamount = 0;
 $totalhours = 0;
 ?>
 <div class="content pure-u-1 pure-u-md-21-24">
-    <div class="header-small" >
+    <div class="header-small">
         <div class="items" id="print">
             <h1 class="subhead">Income Details Report</h1>
             <!-- success msg show -->
@@ -38,7 +38,7 @@ $totalhours = 0;
                     <tr>
                         <th>Customer</th>
                         <th>Payment (Rs)</th>
-                        <th>Date</th>                        
+                        <th>Date</th>
                         <th>Vehicle Number</th>
                         <th>Hours</th>
                         <th>Payment Type</th>
@@ -50,7 +50,7 @@ $totalhours = 0;
                     <tr>
                         <td><?=$booking['f_name'];?></td>
                         <td><?=$booking['amount'];?></td>
-                        <td><?=$booking['book_date'];?></td>                        
+                        <td><?=$booking['book_date'];?></td>
                         <td><?=$booking['vehical_no'];?></td>
                         <td><?=$booking['no_of_hours'];?></td>
                         <td><?=$booking['status'];?></td>
@@ -66,23 +66,23 @@ $totalhours = 0;
                         <td><b><?php echo $totalamount; ?></b></td>
                         <td><b><?php echo count($data); ?> Days</b></td>
                         <td></td>
-                        <td><b><?php echo $totalhours; ?></b></td>  
-                        <td></td>                       
+                        <td><b><?php echo $totalhours; ?></b></td>
+                        <td></td>
                     </tr>
                 </tbody>
             </table>
         </div>
         <a class="pure-button button-small button-warning" href="javascript:history.go(-1)">Back</a>
         <button class="pure-button button-small button-success" onclick="printDiv('print')">Print</button>
-       <?php
+        <?php
 unset($_SESSION['success']);
 ?>
-<script>
-		function printDiv(divName){
-			var printContents = document.getElementById(divName).innerHTML;
-			var originalContents = document.body.innerHTML;
-			document.body.innerHTML = printContents;
-			window.print();
-			document.body.innerHTML = originalContents;
-		}
-	</script>
+        <script>
+        function printDiv(divName) {
+            var printContents = document.getElementById(divName).innerHTML;
+            var originalContents = document.body.innerHTML;
+            document.body.innerHTML = printContents;
+            window.print();
+            document.body.innerHTML = originalContents;
+        }
+        </script>

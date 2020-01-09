@@ -1,6 +1,5 @@
 <?php
 include 'header.php';
-$cutomer = $_POST['user_id'];
 $from = $_POST['f_date'];
 $to = $_POST['t_date'];
 $sql = $db->prepare("SELECT

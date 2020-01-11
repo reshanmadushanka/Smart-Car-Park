@@ -6,7 +6,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") { //check data passing method
     $t_time = $_POST['time_to'];
     $location = $_POST['location'];
     $time = date('H:i', $timestamp); //after add one hour =to time
-    //get booking data with slot detail------------
+    //get only booking data with slot detail------------
     $sql = $db->prepare("SELECT
 tbl_booking.*,
 tbl_slot.slot_name AS name,
@@ -15,11 +15,12 @@ FROM
 `tbl_booking`
 INNER JOIN tbl_slot ON tbl_slot.id = tbl_booking.slot_id
 WHERE
-tbl_booking.from >= '$f_time' AND tbl_booking.from <= '$t_time' AND tbl_booking.to >= '$f_time' AND tbl_booking.to <= '$t_time' AND tbl_booking.book_date = '$date' AND tbl_booking.location= $location ");
+(tbl_booking.from >= '$f_time' OR tbl_booking.from < '$t_time') AND (tbl_booking.to > '$f_time' OR tbl_booking.to <= '$t_time') AND tbl_booking.book_date = '$date' AND tbl_booking.location= $location ");
 //11.00=< x <12.00
     $sql->execute(); //execute query
     $data = $sql->fetchAll(); //insert in to array
-    // get not booking slot data----------------
+
+    // get without booking slots data----------------
     $slot = $db->prepare("SELECT
     *
 FROM
@@ -31,8 +32,7 @@ WHERE
     FROM
         tbl_booking
     WHERE
-    tbl_booking.from >= '$f_time' AND tbl_booking.from < '$t_time' AND tbl_booking.to >= '$f_time' AND tbl_booking.to < '$t_time' AND tbl_booking.book_date = '$date' AND tbl_booking.location= $location
-);");
+    (tbl_booking.from >= '$f_time' OR tbl_booking.from < '$t_time') AND (tbl_booking.to > '$f_time' OR tbl_booking.to <= '$t_time') AND tbl_booking.book_date = '$date' AND tbl_booking.location= $location)");
     $slot->execute();
     $slotdata = $slot->fetchAll();
 }
@@ -49,7 +49,7 @@ include './header.php';
     </div>
     <div class="container">
         <div class="row">
-            <!-- booking slots detail -->
+            <!-- only booking slots detail -->
         <?php
 foreach ($data as $slotall) {?>
 
@@ -62,7 +62,7 @@ foreach ($data as $slotall) {?>
             </div>
 
         <?php }
-
+// without booking slot details-------
 foreach ($slotdata as $slotval) {?>
             <div class="col-lg-3 col-md-6 text-center">
                 <div id="park2" class="parking-box mt-5 mx-auto <?=$slotval['status'] == '0' ? 'parked' : '';?>">
